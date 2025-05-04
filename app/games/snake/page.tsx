@@ -207,7 +207,7 @@ export default function SnakeGame() {
         return;
       }
       
-      let newSnake = [head, ...snake];
+      const newSnake = [head, ...snake];
       
       if (head.x === apple.x && head.y === apple.y) {
         const newScore = score + 1;
