@@ -351,7 +351,7 @@ export default function SnakeGame() {
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center z-50">
       <div className="absolute top-4 left-4 z-10">
-        <Link href="/" className="flex items-center text-green-400 hover:text-green-300 transition-colors">
+        <Link href="/home" className="flex items-center text-green-400 hover:text-green-300 transition-colors">
           <FaArrowLeft className="mr-2" /> Back to Home
         </Link>
       </div>
@@ -383,13 +383,13 @@ export default function SnakeGame() {
             animate={{ opacity: 1 }}
           >
             <motion.h2 
-              className="text-2xl md:text-4xl text-green-400 mb-4"
+              className="text-xl md:text-3xl text-center text-green-400 mb-4"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
             >
               Press any arrow key to start
             </motion.h2>
-            <p className="text-white text-lg max-w-md text-center px-4">
+            <p className="text-white text-md max-w-md text-center px-4">
               Use <span className="text-green-400">arrow keys</span> or <span className="text-green-400">swipe</span> on mobile to control the snake
             </p>
           </motion.div>
