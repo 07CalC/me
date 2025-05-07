@@ -149,7 +149,7 @@ export const About = () => {
             variants={textVariants}
             className='text-lg md:text-xl text-green-300 mt-4'
           >
-            i like cats and racoons
+            i like cats, dogs and racoons
           </motion.p>
           
           {/* Social icons with responsive sizing */}

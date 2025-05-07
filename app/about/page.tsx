@@ -131,7 +131,7 @@ export default function AboutPage() {
             variants={textVariants}
             className='text-lg md:text-xl text-green-300 mt-4'
           >
-            i like cats and racoons
+            i like cats, dogs and racoons
           </motion.p>
           
           {/* Move button to bottom on mobile, but keep it with text on desktop */}
