@@ -4,7 +4,7 @@ import { useRef, useEffect } from 'react';
 import { useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaGamepad } from 'react-icons/fa';
+import { GamesFAB } from '@/components/GamesFAB';
 
 export default function AboutPage() {
   const controls = useAnimation();
@@ -91,13 +91,7 @@ export default function AboutPage() {
 
   return (
     <main ref={ref} className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-8 lg:py-0">
-      <Link 
-          href={"/games"} 
-          className='fixed z-10 md:bottom-5 md:left-5 bottom-5 left-1/2 transform md:transform-none -translate-x-1/2 md:translate-x-0 p-4 flex border-2 border-green-800 rounded-2xl text-green-800 bg-green-400 hover:bg-green-500/50 hover:text-green-300 transition-colors duration-100 animate-bounce group'
-        >
-            <FaGamepad className='md:text-3xl text-xl group-hover:animate-wiggle' />
-            <span className='md:text-lg ml-2 text-sm'>Games</span>
-        </Link>
+      <GamesFAB />
       <motion.h1
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}

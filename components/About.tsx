@@ -233,7 +233,8 @@ export const About = () => {
               alt="Vinayak Maheshwari"
               width={300}
               height={300}
-              className="rounded-full w-48 sm:w-64 md:w-72 border-4 border-green-400/30 shadow-lg shadow-green-400/20"
+              
+              className="rounded-full w-48 sm:w-64 md:w-72 border-4 border-green-400/30 shadow-[0_5px_30px_rgba(74,222,128,0.5)] hover:shadow-[0_0_25px_rgba(74,222,128,0.8)]"
               priority
             />
           </motion.div>
