@@ -350,10 +350,21 @@ export default function SnakeGame() {
 
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center z-50">
-      <div className="absolute top-4 left-4 z-10">
-        <Link href="/home" className="flex items-center text-green-400 hover:text-green-300 transition-colors">
-          <FaArrowLeft className="mr-2" /> Back to Home
-        </Link>
+      <div className="md:absolute md:top-4 self-start mb-10 left-4 z-10">
+      <Link 
+        href="/games" 
+        className="mt-6 ml-6 text-green-400 hover:text-green-300 flex items-center transition-colors duration-300"
+      >
+        <motion.span 
+          initial={{ x: -5, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mr-2"
+        >
+        <FaArrowLeft className="mr-2" />
+        </motion.span>
+        Back
+      </Link>
       </div>
       
       <div className="text-center mb-4 z-10">

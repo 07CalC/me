@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Ref } from 'react';
 import { useAsciiText, slant } from 'react-ascii-text';
+import { FaGamepad } from 'react-icons/fa';
 
 
 export default function HomePage() {
@@ -19,6 +20,13 @@ export default function HomePage() {
   });
   return (
     <main className="h-screen flex flex-col items-center justify-center">
+      <Link 
+          href={"/games"} 
+          className='fixed z-10 md:bottom-5 md:left-5 bottom-5 left-1/2 transform md:transform-none -translate-x-1/2 md:translate-x-0 p-4 flex border-2 border-green-800 rounded-2xl text-green-800 bg-green-400 hover:bg-green-500/50 hover:text-green-300 transition-colors duration-100 animate-bounce group'
+        >
+            <FaGamepad className='md:text-3xl text-xl group-hover:animate-wiggle' />
+            <span className='md:text-lg ml-2 text-sm'>Games</span>
+        </Link>
        <motion.pre
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}

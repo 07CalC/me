@@ -43,7 +43,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`bg-[#191e17] text-green-400 ${retroFont.className} p-4`}>{children}</body>
+      <body className={`bg-[#191e17] text-green-400 ${retroFont.className} p-4`}>
+        
+        {children}
+        </body>
     </html>
   );
 }

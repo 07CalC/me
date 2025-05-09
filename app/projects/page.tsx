@@ -3,7 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { useInView } from "framer-motion";
 import Link from "next/link";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGamepad, FaGithub } from "react-icons/fa";
 import { ReactSVG } from "react-svg";
 
 const projects = [
@@ -182,6 +182,13 @@ export default function ProjectsPage() {
       ref={ref} 
       className="min-h-screen w-full flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-8"
     >
+      <Link 
+          href={"/games"} 
+          className='fixed z-10 md:bottom-5 md:left-5 bottom-5 left-1/2 transform md:transform-none -translate-x-1/2 md:translate-x-0 p-4 flex border-2 border-green-800 rounded-2xl text-green-800 bg-green-400 hover:bg-green-500/50 hover:text-green-300 transition-colors duration-100 animate-bounce group'
+        >
+            <FaGamepad className='md:text-3xl text-xl group-hover:animate-wiggle' />
+            <span className='md:text-lg ml-2 text-sm'>Games</span>
+        </Link>
       <motion.h1
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
