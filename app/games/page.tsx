@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaArrowLeft, FaChevronRight, FaGamepad, FaSnowflake } from "react-icons/fa";
 import { BsJoystick } from "react-icons/bs";
 import { GiPingPongBat, GiSpaceship } from "react-icons/gi";
+import { SiTrueup } from "react-icons/si";
 
 export default function GamesPage() {
   const [hoveredGame, setHoveredGame] = useState<string | null>(null);
@@ -18,19 +19,19 @@ export default function GamesPage() {
       available: true
     },
     {
+      title: "Flappy Turd",
+      description: "fly through the pipes and avoid obstacles in this addictive flappy bird clone. Tap to flap your turd!",
+      icon: <GiSpaceship className="text-3xl md:text-5xl" />,
+      link: "/games/flappy-turd",
+      available: SiTrueup
+    },
+    {
       title: "Pong",
       description: "The original arcade classic. Control your paddle and beat the AI in this simple yet addictive game.",
       icon: <GiPingPongBat className="text-3xl md:text-5xl" />,
       link: "/games/pong",
       available: false
     },
-    {
-      title: "Space Blaster",
-      description: "Defend the galaxy from alien invaders in this fast-paced space shooter.",
-      icon: <GiSpaceship className="text-3xl md:text-5xl" />,
-      link: "/games/space-blaster",
-      available: false
-    }
   ];
   
   const containerVariants = {
