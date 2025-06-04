@@ -253,7 +253,7 @@ export const About = () => {
             className="flex justify-center"
           >
             <Image 
-              src="/racoon.png" 
+              src="https://avatars.githubusercontent.com/u/96346957?v=4" 
               alt="Vinayak Maheshwari"
               width={300}
               height={300}
