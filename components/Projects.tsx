@@ -184,7 +184,7 @@ export const Projects = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.8 }}
-        className="text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-6 text-center underline text-green-400 font-bold"
+        className="text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-6 text-center underline text-purple-400 font-bold"
       >
         Projects
       </motion.h1>
@@ -223,16 +223,16 @@ export const Projects = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="bg-green-900/20 border-green-400 border-2 rounded-xl p-4 sm:p-6 shadow-lg h-full flex flex-col justify-between"
+              className="bg-purple-900/20 border-purple-400 border-2 rounded-xl p-4 sm:p-6 shadow-lg h-full flex flex-col justify-between"
             >
               <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl mb-2 md:mb-4 text-green-400 font-bold">{project.title}</h2>
+                <h2 className="text-xl sm:text-2xl md:text-3xl mb-2 md:mb-4 text-purple-400 font-bold">{project.title}</h2>
                 <p className="mb-3 md:mb-5 text-sm md:text-md text-white/80">{project.description}</p>
                 <div className="flex flex-wrap gap-2 md:gap-3 mb-4">
                   {project.tech && project.tech.map((tech, index) => (
                     <motion.div 
                       key={index} 
-                      className="flex items-center gap-1 sm:gap-2 bg-green-900/40 px-2 sm:px-3 py-1 rounded-lg"
+                      className="flex items-center gap-1 sm:gap-2 bg-purple-900/40 px-2 sm:px-3 py-1 rounded-lg"
                       whileHover={{ 
                         scale: 1.05,
                         transition: { duration: 0.2 }
@@ -248,7 +248,7 @@ export const Projects = () => {
                         src={tech.icon}
                         className="w-4 h-4 sm:w-5 sm:h-5"
                       />
-                      <span className="text-xs sm:text-sm text-green-300">{tech.name}</span>
+                      <span className="text-xs sm:text-sm text-purple-300">{tech.name}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -260,7 +260,7 @@ export const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex border-2 hover:bg-green-500/50 border-green-400 px-2 py-1 sm:p-2 justify-center items-center gap-1 transition-colors duration-200 rounded-md flex-1 md:flex-none"
+                    className="flex border-2 hover:bg-purple-500/50 border-purple-400 px-2 py-1 sm:p-2 justify-center items-center gap-1 transition-colors duration-200 rounded-md flex-1 md:flex-none"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -273,7 +273,7 @@ export const Projects = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex border-2 hover:bg-green-500/50 border-green-400 px-2 py-1 sm:p-2 justify-center items-center gap-1 transition-colors duration-200 rounded-md flex-1 md:flex-none"
+                    className="flex border-2 hover:bg-purple-500/50 border-purple-400 px-2 py-1 sm:p-2 justify-center items-center gap-1 transition-colors duration-200 rounded-md flex-1 md:flex-none"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

@@ -75,7 +75,7 @@ export default function GamesPage() {
     <div className="min-h-screen w-full flex flex-col items-center justify-start py-16 md:py-24 px-4 md:px-8">
       <Link 
         href="/home" 
-        className="absolute top-6 left-6 text-green-400 hover:text-green-300 flex items-center transition-colors duration-300"
+        className="absolute top-6 left-6 text-purple-400 hover:text-purple-300 flex items-center transition-colors duration-300"
       >
         <motion.span 
           initial={{ x: -5, opacity: 0 }}
@@ -98,8 +98,8 @@ export default function GamesPage() {
           className="flex items-center mb-6"
           variants={titleVariants}
         >
-          <FaGamepad className="text-green-400 text-5xl md:text-6xl mr-3" />
-          <h1 className="text-4xl md:text-5xl font-bold text-green-400">Games</h1>
+          <FaGamepad className="text-purple-400 text-5xl md:text-6xl mr-3" />
+          <h1 className="text-4xl md:text-5xl font-bold text-purple-400">Games</h1>
         </motion.div>
         
         
@@ -109,7 +109,7 @@ export default function GamesPage() {
               key={game.title}
               variants={itemVariants}
               className={`relative rounded-xl border-2 ${game.available 
-                ? "border-green-400 hover:shadow-lg hover:shadow-green-400/20" 
+                ? "border-purple-400 hover:shadow-lg hover:shadow-purple-400/20" 
                 : "border-gray-600 opacity-70"
               } overflow-hidden flex flex-col h-full transition duration-300 ease-in-out`}
               onMouseEnter={() => setHoveredGame(game.title)}
@@ -117,7 +117,7 @@ export default function GamesPage() {
             >
               <div className="p-6 md:p-8 flex-1 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="text-green-400">
+                  <div className="text-purple-400">
                     {game.icon}
                   </div>
                   {!game.available && (
@@ -127,7 +127,7 @@ export default function GamesPage() {
                   )}
                 </div>
                 
-                <h2 className="text-2xl md:text-3xl font-bold text-green-400 mb-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-400 mb-3">
                   {game.title}
                 </h2>
                 
@@ -138,7 +138,7 @@ export default function GamesPage() {
                 {game.available ? (
                   <Link 
                     href={game.link}
-                    className="flex items-center justify-center bg-green-500/20 hover:bg-green-500/30 text-green-400 font-medium py-3 px-4 rounded-md transition-colors duration-300"
+                    className="flex items-center justify-center bg-purple-500/20 hover:bg-purple-500/30 text-purple-400 font-medium py-3 px-4 rounded-md transition-colors duration-300"
                   >
                     Play Now 
                     <motion.div
@@ -160,7 +160,7 @@ export default function GamesPage() {
               
               {game.available && (
                 <motion.div 
-                  className="absolute inset-0 bg-green-400/5 pointer-events-none"
+                  className="absolute inset-0 bg-purple-400/5 pointer-events-none"
                   initial={{ opacity: 0 }}
                   animate={{ 
                     opacity: hoveredGame === game.title ? 1 : 0 

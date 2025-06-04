@@ -176,7 +176,7 @@ export default function FlappyTurdGame() {
         <div className="w-full flex justify-between items-center mb-4 px-2 md:px-4">
           <Link 
             href="/games" 
-            className="text-green-400 hover:text-green-300 flex items-center transition-colors duration-300 text-sm md:text-base"
+            className="text-purple-400 hover:text-purple-300 flex items-center transition-colors duration-300 text-sm md:text-base"
           >
             <motion.span 
               initial={{ x: -5, opacity: 0 }}
@@ -191,15 +191,15 @@ export default function FlappyTurdGame() {
         </div>
 
         <div className="text-center mb-4 w-full">
-          <h1 className="text-xl md:text-4xl font-bold text-green-400 mb-2">Flappy Turd</h1>
+          <h1 className="text-xl md:text-4xl font-bold text-purple-400 mb-2">Flappy Turd</h1>
           <div className="flex justify-center gap-4 md:gap-8 text-sm md:text-base text-white">
-            <div>Score: <span className="text-green-400 font-bold">{score}</span></div>
-            <div>High Score: <span className="text-green-400 font-bold">{highScore}</span></div>
+            <div>Score: <span className="text-purple-400 font-bold">{score}</span></div>
+            <div>High Score: <span className="text-purple-400 font-bold">{highScore}</span></div>
           </div>
         </div>
 
         <div 
-          className="relative overflow-hidden border-4 border-green-400 rounded-lg shadow-xl bg-black/70 cursor-pointer"
+          className="relative overflow-hidden border-4 border-purple-400 rounded-lg shadow-xl bg-black/70 cursor-pointer"
           style={{ 
             width: gameSize.width,
             height: gameSize.height,
@@ -221,14 +221,14 @@ export default function FlappyTurdGame() {
             }}
             transition={{ type: "tween", duration: 0.1 }}
           >
-            <span className="text-2xl md:text-3xl text-green-400" 
+            <span className="text-2xl md:text-3xl text-purple-400" 
                   style={{ transform: 'scale(1.2)' }}>💩</span>
           </motion.div>
 
           {pipes.map((pipe) => (
             <div key={pipe.id}>
               <div
-                className="absolute bg-green-700 border-4 border-t-0 border-green-400"
+                className="absolute bg-purple-700 border-4 border-t-0 border-purple-400"
                 style={{
                   left: pipe.x * (gameSize.width / GAME_WIDTH),
                   top: 0,
@@ -237,7 +237,7 @@ export default function FlappyTurdGame() {
                 }}
               />
               <div
-                className="absolute bg-green-700 border-4 border-b-0 border-green-400"
+                className="absolute bg-purple-700 border-4 border-b-0 border-purple-400"
                 style={{
                   left: pipe.x * (gameSize.width / GAME_WIDTH),
                   top: (pipe.topHeight + GAP) * (gameSize.height / GAME_HEIGHT),
@@ -263,12 +263,12 @@ export default function FlappyTurdGame() {
             >
               <h2 className="text-xl md:text-4xl text-red-500 font-bold mb-2">Game Over</h2>
               <p className="text-base md:text-xl text-white mb-4 md:mb-6">
-                Your score: <span className="text-green-400 font-bold">{score}</span>
+                Your score: <span className="text-purple-400 font-bold">{score}</span>
               </p>
               <motion.button
                 onClick={resetGame}
-                className="px-4 py-2 md:px-6 md:py-3 bg-green-500 text-white rounded-md text-sm md:text-lg 
-                         hover:bg-green-600 transition-colors"
+                className="px-4 py-2 md:px-6 md:py-3 bg-purple-500 text-white rounded-md text-sm md:text-lg 
+                         hover:bg-purple-600 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

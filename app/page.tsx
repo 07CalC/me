@@ -36,7 +36,7 @@ export default function HomePage() {
         transition={{ delay: 1 }}
         className="flex gap-4"
       >
-        <Link href="/about" className="border border-green-400 px-4 py-2 hover:bg-green-700">Start</Link>
+        <Link href="/about" className="border border-purple-400 px-4 py-2 hover:bg-purple-700">Walkthrough</Link>
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
@@ -44,7 +44,7 @@ export default function HomePage() {
         transition={{ delay: 1 }}
         className="flex gap-4"
       >
-        <Link href="/home" className="border border-green-400 px-4 py-2 hover:bg-green-700">Home</Link>
+        <Link href="/home" className="border border-purple-400 px-4 py-2 hover:bg-purple-700">Home</Link>
       </motion.div>
       </div>
     </main>

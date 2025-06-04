@@ -353,7 +353,7 @@ export default function SnakeGame() {
       <div className="md:absolute md:top-4 self-start mb-10 left-4 z-10">
       <Link 
         href="/games" 
-        className="mt-6 ml-6 text-green-400 hover:text-green-300 flex items-center transition-colors duration-300"
+        className="mt-6 ml-6 text-purple-400 hover:text-purple-300 flex items-center transition-colors duration-300"
       >
         <motion.span 
           initial={{ x: -5, opacity: 0 }}
@@ -368,16 +368,16 @@ export default function SnakeGame() {
       </div>
       
       <div className="text-center mb-4 z-10">
-        <h1 className="text-2xl md:text-4xl font-bold text-green-400">Snake Game</h1>
+        <h1 className="text-2xl md:text-4xl font-bold text-purple-400">Snake Game</h1>
         <div className="flex justify-center gap-8 text-white mt-2">
-          <div>Score: <span className="text-green-400 font-bold">{score}</span></div>
-          <div>High Score: <span className="text-green-400 font-bold">{highScore}</span></div>
+          <div>Score: <span className="text-purple-400 font-bold">{score}</span></div>
+          <div>High Score: <span className="text-purple-400 font-bold">{highScore}</span></div>
         </div>
       </div>
       
       <div 
         ref={containerRef}
-        className="relative flex-1 w-full max-w-[800px] max-h-[80vh] border-2 border-green-400 rounded-md overflow-hidden"
+        className="relative flex-1 w-full max-w-[800px] max-h-[80vh] border-2 border-purple-400 rounded-md overflow-hidden"
         onTouchStart={handleTouchStart}
       >
         <canvas 
@@ -394,14 +394,14 @@ export default function SnakeGame() {
             animate={{ opacity: 1 }}
           >
             <motion.h2 
-              className="text-xl md:text-3xl text-center text-green-400 mb-4"
+              className="text-xl md:text-3xl text-center text-purple-400 mb-4"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
             >
               Press any arrow key to start
             </motion.h2>
             <p className="text-white text-md max-w-md text-center px-4">
-              Use <span className="text-green-400">arrow keys</span> or <span className="text-green-400">swipe</span> on mobile to control the snake
+              Use <span className="text-purple-400">arrow keys</span> or <span className="text-purple-400">swipe</span> on mobile to control the snake
             </p>
           </motion.div>
         )}
@@ -413,10 +413,10 @@ export default function SnakeGame() {
             animate={{ opacity: 1 }}
           >
             <h2 className="text-2xl md:text-4xl text-red-500 font-bold mb-2">Game Over</h2>
-            <p className="text-xl text-white mb-6">Your score: <span className="text-green-400 font-bold">{score}</span></p>
+            <p className="text-xl text-white mb-6">Your score: <span className="text-purple-400 font-bold">{score}</span></p>
             <motion.button
               onClick={resetGame}
-              className="px-6 py-3 bg-green-500 text-white rounded-md text-lg hover:bg-green-600 transition-colors"
+              className="px-6 py-3 bg-purple-500 text-white rounded-md text-lg hover:bg-purple-600 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

@@ -85,7 +85,7 @@ export function Experience() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.8 }}
-        className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-green-400 underline"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-purple-400 underline"
       >
         Professional Experience
       </motion.h2>
@@ -100,7 +100,7 @@ export function Experience() {
           <motion.div 
             key={index} 
             variants={itemVariants}
-            className="bg-green-900/20 border-green-400 border-2 rounded-xl p-4 sm:p-6 md:p-8 w-full"
+            className="bg-purple-900/20 border-purple-400 border-2 rounded-xl p-4 sm:p-6 md:p-8 w-full"
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               {/* Company logo - smaller on mobile */}
@@ -121,7 +121,7 @@ export function Experience() {
                       priority
                     />
                   ) : (
-                    <div className="text-2xl sm:text-3xl md:text-4xl text-green-400 font-bold">
+                    <div className="text-2xl sm:text-3xl md:text-4xl text-purple-400 font-bold">
                       {job.company.charAt(0)}
                     </div>
                   )}
@@ -136,12 +136,12 @@ export function Experience() {
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, delay: 0.3 }}
                 >
-                  <h3 className="text-xl sm:text-2xl font-bold text-green-400">{job.position}</h3>
-                  <span className="text-sm md:text-base text-green-400 font-mono mt-1 md:mt-0">{job.duration}</span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-purple-400">{job.position}</h3>
+                  <span className="text-sm md:text-base text-purple-400 font-mono mt-1 md:mt-0">{job.duration}</span>
                 </motion.div>
                 
                 <motion.h4 
-                  className="text-lg sm:text-xl text-green-300 mb-2 md:mb-4"
+                  className="text-lg sm:text-xl text-purple-300 mb-2 md:mb-4"
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.4, delay: 0.4 }}
@@ -174,7 +174,7 @@ export function Experience() {
                         backgroundColor: "rgba(34, 197, 94, 0.3)",
                         transition: { duration: 0.2 }
                       }}
-                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-green-900/40 text-green-400 text-xs sm:text-sm font-mono rounded-md transition-colors duration-200"
+                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-purple-900/40 text-purple-400 text-xs sm:text-sm font-mono rounded-md transition-colors duration-200"
                     >
                       {tech}
                     </motion.span>
