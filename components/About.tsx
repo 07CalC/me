@@ -7,18 +7,17 @@ import Image from "next/image";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiGithubFill, RiInstagramLine, RiLinkedinBoxLine, RiTwitterXLine } from "react-icons/ri";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
+import { GrArchlinux } from "react-icons/gr";
 
 export const About = () => {
   const controls = useAnimation();
   const ref = useRef(null);
-  
-  // Set up the InView hook to trigger animations
-  const inView = useInView(ref, { 
-    once: false, 
-    amount: 0.1 // Reduced threshold for better mobile triggering
+
+  const inView = useInView(ref, {
+    once: false,
+    amount: 0.1
   });
-  
-  // Reset and restart animation when view changes
+
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -27,19 +26,17 @@ export const About = () => {
     }
   }, [controls, inView]);
 
-  // All animation variants remain the same
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         staggerChildren: 0.2,
         delayChildren: 0.1
       }
     }
   };
 
-  // Left side content animation variants
   const leftVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: {
@@ -54,7 +51,6 @@ export const About = () => {
     }
   };
 
-  // Right side image animation variants
   const rightVariants = {
     hidden: { opacity: 0, x: 50 },
     visible: {
@@ -69,7 +65,6 @@ export const About = () => {
     }
   };
 
-  // Text item animation variants
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -84,7 +79,6 @@ export const About = () => {
     }
   };
 
-  // Social icons animation variants
   const socialVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -113,45 +107,52 @@ export const About = () => {
   };
 
   return (
-    <main 
-      ref={ref} 
+    <main
+      ref={ref}
       className="min-h-screen w-full flex flex-col items-center justify-center py-8 md:py-0 px-4 overflow-x-hidden"
     >
 
-      {/* Content container with improved responsive layout */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={controls}
         className="flex flex-col md:flex-row items-center w-full max-w-6xl gap-6 md:gap-8"
       >
-        {/* Text section - stacked on mobile, side by side on larger screens */}
-        <motion.div 
+        <motion.div
           variants={leftVariants}
-          className="w-full md:w-1/2 text-center md:text-left order-2 md:order-1"
+          className="w-full flex flex-col justify-center items-center md:items-start md:w-1/2 text-center md:text-left order-2 md:order-1"
         >
-          <motion.p 
+          <motion.p
             variants={textVariants}
             className="text-base md:text-lg mb-4"
           >
-            Hi, I&apos;m <strong className='text-xl md:text-2xl text-purple-300'>Vinayak Maheshwari</strong>, a fresher at the <strong className='text-xl md:text-2xl text-purple-300'>Indian Institute of Information Technology Allahabad</strong>.
+            Hi, I&apos;m <strong className='text-xl md:text-2xl text-purple-300'>Vinayak Maheshwari</strong>, a <strong className="text-xl md:text-2xl text-purple-300">Sophomore</strong> at <strong className='text-xl md:text-2xl text-purple-300'>Indian Institute of Information Technology Allahabad</strong>.
             I&apos;m passionate about software development, particularly in web and mobile applications.
           </motion.p>
-{/*           
-          <motion.p 
-            variants={textVariants}
-            className="text-base md:text-lg mb-4"
-          >
-            I enjoy learning new technologies and building projects that solve real-world problems.
-            I&apos;m currently honing my skills in App development, and I love experimenting with different frameworks and tools. In my free time, I dive into deep sleep.
-          </motion.p> */}
-          
           <motion.p
             variants={textVariants}
             className='text-lg md:text-xl text-purple-300 mt-4'
           >
             i like cats, dogs and racoons
           </motion.p>
+
+
+
+          {/* Arch btw */}
+          <motion.div className="flex-mt-4 justify-center md:justify-start">
+            <motion.a
+              variants={iconVariants}
+              href="https://github.com/07calc/aurora"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center bg-blue-500 hover:bg-blue-600 px-2 py-2 justify-center gap-2  mt-4 rounded-lg transition-colors w-56"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <GrArchlinux className="text-lg md:text-3xl text-white" />
+              <span className="font-medium text-sm md:text-base text-white">Arch btw</span>
+            </motion.a>
+          </motion.div>
 
           {/* Resume Button */}
           <motion.div className="flex mt-4 justify-center md:justify-start">
@@ -168,13 +169,14 @@ export const About = () => {
               <span className="font-medium text-sm md:text-base text-white">Resume</span>
             </motion.a>
           </motion.div>
-          
+
+
           {/* Social icons with responsive sizing */}
           <motion.div
             variants={socialVariants}
             className="flex flex-wrap gap-3 md:gap-5 justify-center md:justify-start mt-5"
           >
-            <motion.a 
+            <motion.a
               variants={iconVariants}
               href="mailto:maheshwarivinayak90@gmail.com"
               whileHover={{ scale: 1.2, color: "#9810fa" }}
@@ -182,7 +184,7 @@ export const About = () => {
             >
               <MdOutlineMailOutline className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
             </motion.a>
-            
+
             <motion.a
               variants={iconVariants}
               href="https://www.linkedin.com/in/maheshwarivinayak"
@@ -193,10 +195,10 @@ export const About = () => {
             >
               <RiLinkedinBoxLine className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
             </motion.a>
-            
-            <motion.a 
+
+            <motion.a
               variants={iconVariants}
-              href="https://www.instagram.com/_kysvin/" 
+              href="https://www.instagram.com/_kysvin/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, color: "#9810fa" }}
@@ -204,10 +206,10 @@ export const About = () => {
             >
               <RiInstagramLine className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
             </motion.a>
-            
-            <motion.a 
+
+            <motion.a
               variants={iconVariants}
-              href="https://x.com/Not_CalC" 
+              href="https://x.com/Not_CalC"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, color: "#9810fa" }}
@@ -215,10 +217,10 @@ export const About = () => {
             >
               <RiTwitterXLine className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
             </motion.a>
-            
-            <motion.a 
+
+            <motion.a
               variants={iconVariants}
-              href="https://github.com/07CalC" 
+              href="https://github.com/07CalC"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, color: "#9810fa" }}
@@ -227,14 +229,15 @@ export const About = () => {
               <RiGithubFill className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
             </motion.a>
 
-            
+
           </motion.div>
         </motion.div>
 
         {/* Image section - stacked on mobile, side by side on larger screens */}
         <motion.div
           variants={rightVariants}
-          whileHover={{ scale: 1.05 ,
+          whileHover={{
+            scale: 1.05,
             rotate: [0, -5, 5, -5, 5, 0]
 
           }}
@@ -243,8 +246,8 @@ export const About = () => {
           <motion.div
             initial={{ rotate: 0 }}
             animate={inView ? { rotate: [0, -5, 5, -5, 5, 0] } : { rotate: 0 }}
-            
-            transition={{ 
+
+            transition={{
               duration: 2,
               delay: 0.5,
               ease: "easeInOut",
@@ -252,19 +255,19 @@ export const About = () => {
             }}
             className="flex justify-center"
           >
-            <Image 
-              src="https://avatars.githubusercontent.com/u/96346957?v=4" 
+            <Image
+              src="https://avatars.githubusercontent.com/u/96346957?v=4"
               alt="Vinayak Maheshwari"
               width={300}
               height={300}
-              
+
               className="rounded-full w-48 sm:w-64 md:w-72 border-4 border-purple-400/30 shadow-[0_5px_30px_rgba(74,128,222,0.5)] hover:shadow-[0_0_25px_rgba(74,127,222,0.8)]"
               priority
             />
           </motion.div>
-          
+
           <motion.div
-            variants={textVariants} 
+            variants={textVariants}
             className="relative flex flex-col items-center mt-2"
           >
             <motion.div
