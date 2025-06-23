@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     description: 'Hi I am Vinayak Maheshwari, a fresher at the Indian Institute of Information Technology Allahabad. I am passionate about software development, particularly in web and mobile applications. I enjoy learning new technologies and building projects that solve real-world problems.',
     url: 'https://pholio.online',
     siteName: 'Vinayak Maheshwari',
-    
+
     images: [
       {
         url: '/openGraph.png',
         width: 1200,
         height: 630,
-        
+
       },
     ],
   },
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`bg-[#1b171e] text-purple-400 ${retroFont.className} p-4 pb-10`}>
-        
+      <body className={` text-text ${retroFont.className} p-4 pb-10`}>
+
         {children}
-        </body>
+      </body>
     </html>
   );
 }

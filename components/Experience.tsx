@@ -5,7 +5,6 @@ import { useRef, useEffect } from 'react';
 import { useInView } from 'framer-motion';
 import Image from 'next/image';
 
-// Define experience data structure - remains the same
 const experienceData = [
   {
     company: "Kiran Foundation",
@@ -21,14 +20,12 @@ within the app.`,
 export function Experience() {
   const controls = useAnimation();
   const ref = useRef(null);
-  
-  // Set up the InView hook to trigger animations
-  const inView = useInView(ref, { 
-    once: false, 
-    amount: 0.1 // Reduced threshold for better mobile triggering
+
+  const inView = useInView(ref, {
+    once: false,
+    amount: 0.1
   });
-  
-  // Reset and restart animation when view changes
+
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -37,7 +34,6 @@ export function Experience() {
     }
   }, [controls, inView]);
 
-  // Animation variants remain the same
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -61,7 +57,7 @@ export function Experience() {
       }
     }
   };
-  
+
   const techStackVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -77,19 +73,19 @@ export function Experience() {
   };
 
   return (
-    <div 
-      ref={ref} 
+    <div
+      ref={ref}
       className="min-h-screen w-full flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-8 overflow-x-hidden"
     >
-      <motion.h2 
+      <motion.h2
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.8 }}
-        className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-purple-400 underline"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-accent underline"
       >
         Professional Experience
       </motion.h2>
-      
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -97,14 +93,14 @@ export function Experience() {
         className="flex flex-col items-center justify-center w-full max-w-4xl"
       >
         {experienceData.map((job, index) => (
-          <motion.div 
-            key={index} 
+          <motion.div
+            key={index}
             variants={itemVariants}
-            className="bg-purple-900/20 border-purple-400 border-2 rounded-xl p-4 sm:p-6 md:p-8 w-full"
+            className="bg-accent2/20 border-accent2 border-2 rounded-xl p-4 sm:p-6 md:p-8 w-full"
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               {/* Company logo - smaller on mobile */}
-              <motion.div 
+              <motion.div
                 className="flex-shrink-0 flex justify-center md:block"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
@@ -121,60 +117,56 @@ export function Experience() {
                       priority
                     />
                   ) : (
-                    <div className="text-2xl sm:text-3xl md:text-4xl text-purple-400 font-bold">
+                    <div className="text-2xl sm:text-3xl md:text-4xl text-accent font-bold">
                       {job.company.charAt(0)}
                     </div>
                   )}
                 </div>
               </motion.div>
-              
-              {/* Job details - stacks below logo on mobile */}
               <div className="flex-grow">
-                <motion.div 
+                <motion.div
                   className="flex flex-col md:flex-row md:justify-between"
                   initial={{ opacity: 0, y: -10 }}
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, delay: 0.3 }}
                 >
-                  <h3 className="text-xl sm:text-2xl font-bold text-purple-400">{job.position}</h3>
-                  <span className="text-sm md:text-base text-purple-400 font-mono mt-1 md:mt-0">{job.duration}</span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-accent">{job.position}</h3>
+                  <span className="text-sm md:text-base text-accent font-mono mt-1 md:mt-0">{job.duration}</span>
                 </motion.div>
-                
-                <motion.h4 
-                  className="text-lg sm:text-xl text-purple-300 mb-2 md:mb-4"
+
+                <motion.h4
+                  className="text-lg sm:text-xl text-accent2 mb-2 md:mb-4"
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.4, delay: 0.4 }}
                 >
                   {job.company}
                 </motion.h4>
-                
-                <motion.p 
-                  className="mb-3 md:mb-4 text-sm sm:text-base text-white/80"
+
+                <motion.p
+                  className="mb-3 md:mb-4 text-sm sm:text-base text-text"
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
                 >
                   {job.description}
                 </motion.p>
-                
-                {/* Tech stack tags - smaller on mobile with flex-wrap */}
-                <motion.div 
+
+                <motion.div
                   className="flex flex-wrap gap-1 sm:gap-2 mt-3 md:mt-4"
                   variants={containerVariants}
                   initial="hidden"
                   animate={controls}
                 >
                   {job.techStack.map((tech, techIndex) => (
-                    <motion.span 
+                    <motion.span
                       key={techIndex}
                       variants={techStackVariants}
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.05,
-                        backgroundColor: "rgba(34, 197, 94, 0.3)",
                         transition: { duration: 0.2 }
                       }}
-                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-purple-900/40 text-purple-400 text-xs sm:text-sm font-mono rounded-md transition-colors duration-200"
+                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-accent/30 text-accent text-sm sm:text-lg font-mono rounded-md transition-colors duration-200"
                     >
                       {tech}
                     </motion.span>

@@ -2,15 +2,45 @@
 
 
 
-  .skill-card:hover {
-    transform: scale(1.05);
-  }
+
+
+
+body {
+  background-color: #1e1e2e;
+  background-image: linear-gradient(#31324422 1px, transparent 1px), linear-gradient(90deg, #31324422 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+
+
+
+.skill-card:hover {
+  transform: scale(1.05);
+}
   
-  .glow-logo {
-    filter: drop-shadow(0 0 2px var(--color-purple-500)) drop-shadow(0 0 2px var(--color-purple-500));
-  }
+.glow-logo {
+  filter: drop-shadow(0 0 2px var(--color-accent)) drop-shadow(0 0 2px var(--color-accent));
+}
   
-  .glow-logo:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 1px var(--color-purple-500)) drop-shadow(0 0 1px var(--color-purple-500));
-  }
+.glow-logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 1px var(--color-accent)) drop-shadow(0 0 1px var(--color-accent));
+}
+
+
+@theme {
+  --color-bg: #1e1e2e;
+  --color-surface: #313244;
+  --color-text: #cdd6f4;
+  --color-subtext: #a6adc8;
+  --color-accent: #89b4fa;
+  --color-success: #a6e3a1;
+  --color-error: #f38ba8;
+  --color-warning: #f9e2af;
+  --color-accent2: #f38ba8;
+  --color-border: #585b70;
+  --color-glow:  #89b4fa77;
+  --color-pink: #f5c2e7;
+}
+
+

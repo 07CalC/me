@@ -124,28 +124,26 @@ export const About = () => {
         >
           <motion.p
             variants={textVariants}
-            className="text-base md:text-lg mb-4"
+            className="text-base md:text-lg mb-4 text-pink"
           >
-            Hi, I&apos;m <strong className='text-xl md:text-2xl text-purple-300'>Vinayak Maheshwari</strong>, a <strong className="text-xl md:text-2xl text-purple-300">Sophomore</strong> at <strong className='text-xl md:text-2xl text-purple-300'>Indian Institute of Information Technology Allahabad</strong>.
-            I&apos;m passionate about software development, particularly in web and mobile applications.
+            Hi, I&apos;m <strong className='text-xl md:text-2xl text-accent2'>Vinayak Maheshwari</strong>, a <strong className="text-xl md:text-2xl text-accent">Sophomore</strong> at <strong className='text-xl md:text-2xl text-accent2'>Indian Institute of Information Technology Allahabad</strong>.
+            I enjoy working across the stack, especially on web and mobile apps, and I’m always looking for ways to turn ideas into clean, functional products.
           </motion.p>
           <motion.p
             variants={textVariants}
-            className='text-lg md:text-xl text-purple-300 mt-4'
+            className='text-lg md:text-xl text-accent mt-4'
           >
             i like cats, dogs and racoons
           </motion.p>
 
 
-
-          {/* Arch btw */}
           <motion.div className="flex-mt-4 justify-center md:justify-start">
             <motion.a
               variants={iconVariants}
               href="https://github.com/07calc/aurora"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center bg-blue-500 hover:bg-blue-600 px-2 py-2 justify-center gap-2  mt-4 rounded-lg transition-colors w-56"
+              className="flex items-center bg-accent hover:bg-accent/60 px-2 py-2 justify-center gap-2  mt-4 rounded-lg transition-colors w-56"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -154,14 +152,13 @@ export const About = () => {
             </motion.a>
           </motion.div>
 
-          {/* Resume Button */}
           <motion.div className="flex mt-4 justify-center md:justify-start">
             <motion.a
               variants={iconVariants}
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-6 py-2 bg-purple-500 rounded-lg hover:bg-purple-600 transition-colors w-40 md:w-44"
+              className="flex items-center justify-center gap-2 px-6 py-2 bg-accent2 rounded-lg hover:bg-accent2/60 transition-colors w-40 md:w-44"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -171,51 +168,17 @@ export const About = () => {
           </motion.div>
 
 
-          {/* Social icons with responsive sizing */}
           <motion.div
             variants={socialVariants}
             className="flex flex-wrap gap-3 md:gap-5 justify-center md:justify-start mt-5"
           >
             <motion.a
               variants={iconVariants}
-              href="mailto:maheshwarivinayak90@gmail.com"
-              whileHover={{ scale: 1.2, color: "#9810fa" }}
+              href="mailto:hello@vinm.me"
+              whileHover={{ scale: 1.2 }}
               className="transition-colors"
             >
-              <MdOutlineMailOutline className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
-            </motion.a>
-
-            <motion.a
-              variants={iconVariants}
-              href="https://www.linkedin.com/in/maheshwarivinayak"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, color: "#9810fa" }}
-              className="transition-colors"
-            >
-              <RiLinkedinBoxLine className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
-            </motion.a>
-
-            <motion.a
-              variants={iconVariants}
-              href="https://www.instagram.com/_kysvin/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, color: "#9810fa" }}
-              className="transition-colors"
-            >
-              <RiInstagramLine className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
-            </motion.a>
-
-            <motion.a
-              variants={iconVariants}
-              href="https://x.com/Not_CalC"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, color: "#9810fa" }}
-              className="transition-colors"
-            >
-              <RiTwitterXLine className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
+              <MdOutlineMailOutline className="text-3xl text-accent2 sm:text-4xl lg:text-5xl cursor-pointer" />
             </motion.a>
 
             <motion.a
@@ -223,17 +186,49 @@ export const About = () => {
               href="https://github.com/07CalC"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, color: "#9810fa" }}
+              whileHover={{ scale: 1.2 }}
               className="transition-colors"
             >
-              <RiGithubFill className="text-3xl sm:text-4xl lg:text-5xl cursor-pointer" />
+              <RiGithubFill className="text-3xl text-accent2 sm:text-4xl lg:text-5xl cursor-pointer" />
             </motion.a>
 
+
+            <motion.a
+              variants={iconVariants}
+              href="https://www.linkedin.com/in/maheshwarivinayak"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2 }}
+              className="transition-colors"
+            >
+              <RiLinkedinBoxLine className="text-3xl text-accent2 sm:text-4xl lg:text-5xl cursor-pointer" />
+            </motion.a>
+
+            <motion.a
+              variants={iconVariants}
+              href="https://www.instagram.com/_kysvin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2 }}
+              className="transition-colors"
+            >
+              <RiInstagramLine className="text-3xl text-accent2 sm:text-4xl lg:text-5xl cursor-pointer" />
+            </motion.a>
+
+            <motion.a
+              variants={iconVariants}
+              href="https://x.com/Not_CalC"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2 }}
+              className="transition-colors"
+            >
+              <RiTwitterXLine className="text-3xl text-accent2 sm:text-4xl lg:text-5xl cursor-pointer" />
+            </motion.a>
 
           </motion.div>
         </motion.div>
 
-        {/* Image section - stacked on mobile, side by side on larger screens */}
         <motion.div
           variants={rightVariants}
           whileHover={{
@@ -261,7 +256,7 @@ export const About = () => {
               width={300}
               height={300}
 
-              className="rounded-full w-48 sm:w-64 md:w-72 border-4 border-purple-400/30 shadow-[0_5px_30px_rgba(74,128,222,0.5)] hover:shadow-[0_0_25px_rgba(74,127,222,0.8)]"
+              className="rounded-full w-48 sm:w-64 md:w-72 border-4 border-accent shadow-[0_0_25px_rgba(134, 180, 250,0.5)] hover:shadow-[0_0_25px_rgba(134,180,250,0.5)]"
               priority
             />
           </motion.div>
@@ -274,13 +269,13 @@ export const About = () => {
               initial={{ height: 0 }}
               animate={inView ? { height: 20 } : { height: 0 }}
               transition={{ duration: 0.3, delay: 0.8 }}
-              className="border-l-8 border-r-8 border-t-8 border-t-purple-500 border-l-transparent border-r-transparent"
+              className="border-l-8 border-r-8 border-t-8 border-t-accent border-l-transparent border-r-transparent"
             />
             <motion.span
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.3, delay: 1 }}
-              className="text-sm text-center"
+              className="text-sm text-center text-accent2"
             >
               It&apos;s me
             </motion.span>
@@ -291,7 +286,3 @@ export const About = () => {
   );
 };
 
-// Add this CSS to your global styles
-// .glow-image {
-//   box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
-// }

@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaArrowLeft } from 'react-icons/fa';
 
-const PRIMARY_COLOR = '#4ade80';
-const DARKER_COLOR = '#22c55e';
-const DARKEST_COLOR = '#16a34a';
-const BG_COLOR = 'rgba(20, 83, 45, 0.1)';
+const PRIMARY_COLOR = '#f38ba8';
+const DARKER_COLOR = '#f47bb9';
+const DARKEST_COLOR = '#f38ba8';
+const BG_COLOR = 'rgba(137, 180, 250, 0.08)';
 
 type Position = { x: number; y: number };
 type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT' | 'NONE';
@@ -17,26 +17,26 @@ export default function SnakeGame() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  
+
   const [snake, setSnake] = useState<Position[]>([]);
   const [apple, setApple] = useState<Position>({ x: 0, y: 0 });
   const [direction, setDirection] = useState<Direction>('NONE');
   const [nextDirection, setNextDirection] = useState<Direction>('NONE');
-  
+
   const SQUARE_SIZE = 40;
   const SNAKE_SPEED = 120;
-  
+
   useEffect(() => {
     const savedHighScore = localStorage.getItem('snakeHighScore');
     if (savedHighScore) {
       setHighScore(parseInt(savedHighScore));
     }
-    
+
     const updateDimensions = () => {
       if (containerRef.current) {
         const { offsetWidth, offsetHeight } = containerRef.current;
@@ -60,7 +60,7 @@ export default function SnakeGame() {
   const resetGame = () => {
     const centerX = Math.floor(COLS / 2);
     const centerY = Math.floor(ROWS / 2);
-    
+
     setSnake([{ x: centerX, y: centerY }]);
     generateNewApple([{ x: centerX, y: centerY }]);
     setDirection('NONE');
@@ -72,7 +72,7 @@ export default function SnakeGame() {
 
   const generateNewApple = (snakeBody: Position[]) => {
     if (COLS <= 0 || ROWS <= 0) return;
-    
+
     let newApple: Position;
     do {
       newApple = {
@@ -80,14 +80,14 @@ export default function SnakeGame() {
         y: Math.floor(Math.random() * ROWS),
       };
     } while (snakeBody.some(segment => segment.x === newApple.x && segment.y === newApple.y));
-    
+
     setApple(newApple);
   };
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (gameOver) return;
-      
+
       switch (e.key) {
         case 'ArrowUp':
           if (direction !== 'DOWN') setNextDirection('UP');
@@ -118,19 +118,19 @@ export default function SnakeGame() {
 
   const handleTouchStart = (e: React.TouchEvent) => {
     if (gameOver) return;
-    
+
     const touch = e.touches[0];
     const touchStartX = touch.clientX;
     const touchStartY = touch.clientY;
-    
+
     const handleTouchEnd = (e: TouchEvent) => {
       const touch = e.changedTouches[0];
       const touchEndX = touch.clientX;
       const touchEndY = touch.clientY;
-      
+
       const deltaX = touchEndX - touchStartX;
       const deltaY = touchEndY - touchStartY;
-      
+
       if (Math.abs(deltaX) > Math.abs(deltaY)) {
         if (deltaX > 30) {
           if (direction !== 'LEFT') setNextDirection('RIGHT');
@@ -144,21 +144,21 @@ export default function SnakeGame() {
           if (direction !== 'DOWN') setNextDirection('UP');
         }
       }
-      
+
       if (!gameStarted) setGameStarted(true);
-      
+
       document.removeEventListener('touchend', handleTouchEnd);
     };
-    
+
     document.addEventListener('touchend', handleTouchEnd);
   };
 
   useEffect(() => {
     if (dimensions.width === 0 || dimensions.height === 0) return;
-    
+
     const ctx = canvasRef.current?.getContext('2d');
     if (!ctx) return;
-    
+
     const draw = () => {
       ctx.clearRect(0, 0, dimensions.width, dimensions.height);
       drawGrid(ctx);
@@ -168,16 +168,16 @@ export default function SnakeGame() {
       });
       drawApple(ctx);
     };
-    
+
     draw();
-    
+
     if (!gameStarted) return;
-    
+
     const gameLoop = setInterval(() => {
       if (gameOver) return;
-      
+
       setDirection(nextDirection);
-      
+
       let dx = 0, dy = 0;
       switch (nextDirection) {
         case 'UP': dy = -1; break;
@@ -185,30 +185,30 @@ export default function SnakeGame() {
         case 'LEFT': dx = -1; break;
         case 'RIGHT': dx = 1; break;
       }
-      
+
       if (nextDirection === 'NONE') return;
-      
+
       const head = { ...snake[0] };
       head.x += dx;
       head.y += dy;
-      
+
       if (head.x < 0) head.x = COLS - 1;
       if (head.x >= COLS) head.x = 0;
       if (head.y < 0) head.y = ROWS - 1;
       if (head.y >= ROWS) head.y = 0;
-      
+
       if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
         setGameOver(true);
-        
+
         if (score > highScore) {
           setHighScore(score);
           localStorage.setItem('snakeHighScore', score.toString());
         }
         return;
       }
-      
+
       const newSnake = [head, ...snake];
-      
+
       if (head.x === apple.x && head.y === apple.y) {
         const newScore = score + 1;
         setScore(newScore);
@@ -216,28 +216,28 @@ export default function SnakeGame() {
       } else {
         newSnake.pop();
       }
-      
+
       setSnake(newSnake);
       draw();
     }, SNAKE_SPEED);
-    
+
     return () => clearInterval(gameLoop);
   }, [snake, direction, nextDirection, apple, gameOver, gameStarted, dimensions, score, highScore, COLS, ROWS]);
 
   const drawGrid = (ctx: CanvasRenderingContext2D) => {
     ctx.fillStyle = BG_COLOR;
     ctx.fillRect(0, 0, dimensions.width, dimensions.height);
-    
-    ctx.strokeStyle = 'rgba(74, 222, 128, 0.1)';
+
+    ctx.strokeStyle = 'rgba(137, 180, 250, 0.47)';
     ctx.lineWidth = 0.5;
-    
+
     for (let x = 0; x <= dimensions.width; x += SQUARE_SIZE) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
       ctx.lineTo(x, dimensions.height);
       ctx.stroke();
     }
-    
+
     for (let y = 0; y <= dimensions.height; y += SQUARE_SIZE) {
       ctx.beginPath();
       ctx.moveTo(0, y);
@@ -245,66 +245,66 @@ export default function SnakeGame() {
       ctx.stroke();
     }
   };
-  
+
   const drawSnakeSegment = (ctx: CanvasRenderingContext2D, position: Position, isHead: boolean) => {
     const x = position.x * SQUARE_SIZE;
     const y = position.y * SQUARE_SIZE;
     const size = SQUARE_SIZE;
-    
+
     const gradient = ctx.createLinearGradient(x, y, x + size, y + size);
-    
+
     if (isHead) {
       gradient.addColorStop(0, DARKER_COLOR);
       gradient.addColorStop(1, PRIMARY_COLOR);
-      
+
       ctx.fillStyle = gradient;
       ctx.fillRect(x, y, size, size);
-      
+
       ctx.fillStyle = 'white';
-      
+
       const eyeSize = size / 8;
       let eye1X, eye1Y, eye2X, eye2Y;
-      
+
       switch (direction) {
         case 'UP':
           eye1X = x + size / 4;
           eye1Y = y + size / 4;
-          eye2X = x + size * 3/4;
+          eye2X = x + size * 3 / 4;
           eye2Y = y + size / 4;
           break;
         case 'DOWN':
           eye1X = x + size / 4;
-          eye1Y = y + size * 3/4;
-          eye2X = x + size * 3/4;
-          eye2Y = y + size * 3/4;
+          eye1Y = y + size * 3 / 4;
+          eye2X = x + size * 3 / 4;
+          eye2Y = y + size * 3 / 4;
           break;
         case 'LEFT':
           eye1X = x + size / 4;
           eye1Y = y + size / 4;
           eye2X = x + size / 4;
-          eye2Y = y + size * 3/4;
+          eye2Y = y + size * 3 / 4;
           break;
         case 'RIGHT':
         default:
-          eye1X = x + size * 3/4;
+          eye1X = x + size * 3 / 4;
           eye1Y = y + size / 4;
-          eye2X = x + size * 3/4;
-          eye2Y = y + size * 3/4;
+          eye2X = x + size * 3 / 4;
+          eye2Y = y + size * 3 / 4;
       }
-      
+
       ctx.beginPath();
       ctx.arc(eye1X, eye1Y, eyeSize, 0, Math.PI * 2);
       ctx.fill();
-      
+
       ctx.beginPath();
       ctx.arc(eye2X, eye2Y, eyeSize, 0, Math.PI * 2);
       ctx.fill();
     } else {
       gradient.addColorStop(0, PRIMARY_COLOR);
       gradient.addColorStop(1, DARKEST_COLOR);
-      
+
       ctx.fillStyle = gradient;
-      
+
       const radius = size / 6;
       ctx.beginPath();
       ctx.moveTo(x + radius, y);
@@ -320,103 +320,103 @@ export default function SnakeGame() {
       ctx.fill();
     }
   };
-  
+
   const drawApple = (ctx: CanvasRenderingContext2D) => {
     const x = apple.x * SQUARE_SIZE;
     const y = apple.y * SQUARE_SIZE;
     const size = SQUARE_SIZE;
-    
+
     const gradient = ctx.createRadialGradient(
-      x + size/2, y + size/2, size/10,
-      x + size/2, y + size/2, size/2
+      x + size / 2, y + size / 2, size / 10,
+      x + size / 2, y + size / 2, size / 2
     );
-    gradient.addColorStop(0, '#a3e635');
-    gradient.addColorStop(1, '#4ade80');
-    
+    gradient.addColorStop(0, '#f38ba8');
+    gradient.addColorStop(1, '#f47bb9');
+
     ctx.fillStyle = gradient;
-    
+
     ctx.beginPath();
-    ctx.arc(x + size/2, y + size/2, size/2 - 1, 0, Math.PI * 2);
+    ctx.arc(x + size / 2, y + size / 2, size / 2 - 1, 0, Math.PI * 2);
     ctx.fill();
-    
+
     ctx.fillStyle = '#713f12';
-    ctx.fillRect(x + size/2 - 1, y + 2, 2, 4);
-    
+    ctx.fillRect(x + size / 2 - 1, y + 2, 2, 4);
+
     ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
     ctx.beginPath();
-    ctx.arc(x + size/3, y + size/3, size/6, 0, Math.PI * 2);
+    ctx.arc(x + size / 3, y + size / 3, size / 6, 0, Math.PI * 2);
     ctx.fill();
   };
 
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center z-50">
       <div className="md:absolute md:top-4 self-start mb-10 left-4 z-10">
-      <Link 
-        href="/games" 
-        className="mt-6 ml-6 text-purple-400 hover:text-purple-300 flex items-center transition-colors duration-300"
-      >
-        <motion.span 
-          initial={{ x: -5, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mr-2"
+        <Link
+          href="/games"
+          className="mt-6 ml-6 text-accent hover:text-glow flex items-center transition-colors duration-300"
         >
-        <FaArrowLeft className="mr-2" />
-        </motion.span>
-        Back
-      </Link>
+          <motion.span
+            initial={{ x: -5, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mr-2"
+          >
+            <FaArrowLeft className="mr-2" />
+          </motion.span>
+          Back
+        </Link>
       </div>
-      
+
       <div className="text-center mb-4 z-10">
-        <h1 className="text-2xl md:text-4xl font-bold text-purple-400">Snake Game</h1>
+        <h1 className="text-2xl md:text-4xl font-bold text-accent">Snake Game</h1>
         <div className="flex justify-center gap-8 text-white mt-2">
-          <div>Score: <span className="text-purple-400 font-bold">{score}</span></div>
-          <div>High Score: <span className="text-purple-400 font-bold">{highScore}</span></div>
+          <div>Score: <span className="text-accent font-bold">{score}</span></div>
+          <div>High Score: <span className="text-accent font-bold">{highScore}</span></div>
         </div>
       </div>
-      
-      <div 
+
+      <div
         ref={containerRef}
-        className="relative flex-1 w-full max-w-[800px] max-h-[80vh] border-2 border-purple-400 rounded-md overflow-hidden"
+        className="relative flex-1 w-full max-w-[800px] max-h-[80vh] border-2 border-accent2 rounded-md overflow-hidden"
         onTouchStart={handleTouchStart}
       >
-        <canvas 
+        <canvas
           ref={canvasRef}
           width={dimensions.width}
           height={dimensions.height}
           className="block w-full h-full"
         />
-        
+
         {!gameStarted && !gameOver && (
-          <motion.div 
+          <motion.div
             className="absolute inset-0 flex flex-col items-center justify-center bg-black/70"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <motion.h2 
-              className="text-xl md:text-3xl text-center text-purple-400 mb-4"
+            <motion.h2
+              className="text-xl md:text-3xl text-center text-accent2 mb-4"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
             >
               Press any arrow key to start
             </motion.h2>
             <p className="text-white text-md max-w-md text-center px-4">
-              Use <span className="text-purple-400">arrow keys</span> or <span className="text-purple-400">swipe</span> on mobile to control the snake
+              Use <span className="text-accent">arrow keys</span> or <span className="text-accent2">swipe</span> on mobile to control the snake
             </p>
           </motion.div>
         )}
-        
+
         {gameOver && (
-          <motion.div 
+          <motion.div
             className="absolute inset-0 flex flex-col items-center justify-center bg-black/70"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
             <h2 className="text-2xl md:text-4xl text-red-500 font-bold mb-2">Game Over</h2>
-            <p className="text-xl text-white mb-6">Your score: <span className="text-purple-400 font-bold">{score}</span></p>
+            <p className="text-xl text-white mb-6">Your score: <span className="text-accent font-bold">{score}</span></p>
             <motion.button
               onClick={resetGame}
-              className="px-6 py-3 bg-purple-500 text-white rounded-md text-lg hover:bg-purple-600 transition-colors"
+              className="px-6 py-3 bg-accent2 text-white rounded-md text-lg transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -425,7 +425,7 @@ export default function SnakeGame() {
           </motion.div>
         )}
       </div>
-      
+
       <div className="mt-4 text-center text-white text-sm opacity-80 px-4">
         <p className="md:hidden">Swipe on the game area to change direction</p>
         <p className="hidden md:block">Use arrow keys to control the snake</p>

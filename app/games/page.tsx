@@ -9,7 +9,7 @@ import { SiTrueup } from "react-icons/si";
 
 export default function GamesPage() {
   const [hoveredGame, setHoveredGame] = useState<string | null>(null);
-  
+
   const games = [
     {
       title: "Snake",
@@ -33,7 +33,7 @@ export default function GamesPage() {
       available: false
     },
   ];
-  
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -43,7 +43,7 @@ export default function GamesPage() {
       }
     }
   };
-  
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -56,7 +56,7 @@ export default function GamesPage() {
       }
     }
   };
-  
+
   const titleVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
@@ -70,77 +70,77 @@ export default function GamesPage() {
       }
     }
   };
-  
+
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-start py-16 md:py-24 px-4 md:px-8">
-      <Link 
-        href="/home" 
-        className="absolute top-6 left-6 text-purple-400 hover:text-purple-300 flex items-center transition-colors duration-300"
+      <Link
+        href="/home"
+        className="absolute top-6 left-6 text-accent hover:text-glow flex items-center transition-colors duration-300"
       >
-        <motion.span 
+        <motion.span
           initial={{ x: -5, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
           className="mr-2"
         >
-        <FaArrowLeft className="mr-2" />
+          <FaArrowLeft className="mr-2" />
         </motion.span>
         Home
       </Link>
-      
-      <motion.div 
+
+      <motion.div
         className="flex flex-col items-center"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <motion.div 
+        <motion.div
           className="flex items-center mb-6"
           variants={titleVariants}
         >
-          <FaGamepad className="text-purple-400 text-5xl md:text-6xl mr-3" />
-          <h1 className="text-4xl md:text-5xl font-bold text-purple-400">Games</h1>
+          <FaGamepad className="text-accent text-5xl md:text-6xl mr-3" />
+          <h1 className="text-4xl md:text-5xl font-bold text-accent">Games</h1>
         </motion.div>
-        
-        
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl">
           {games.map((game) => (
             <motion.div
               key={game.title}
               variants={itemVariants}
-              className={`relative rounded-xl border-2 ${game.available 
-                ? "border-purple-400 hover:shadow-lg hover:shadow-purple-400/20" 
-                : "border-gray-600 opacity-70"
-              } overflow-hidden flex flex-col h-full transition duration-300 ease-in-out`}
+              className={`relative rounded-xl border-2  ${game.available
+                ? "border-accent2 bg-accent2/5 hover:shadow-lg hover:shadow-purple-400/20"
+                : "border-border opacity-70"
+                } overflow-hidden flex flex-col h-full transition duration-300 ease-in-out`}
               onMouseEnter={() => setHoveredGame(game.title)}
               onMouseLeave={() => setHoveredGame(null)}
             >
               <div className="p-6 md:p-8 flex-1 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="text-purple-400">
+                  <div className="text-accent">
                     {game.icon}
                   </div>
                   {!game.available && (
-                    <span className="bg-gray-700/70 text-white/70 text-xs px-2 py-1 rounded">
+                    <span className="bg-gray-700/70 text-text text-xs px-2 py-1 rounded">
                       Coming Soon
                     </span>
                   )}
                 </div>
-                
-                <h2 className="text-2xl md:text-3xl font-bold text-purple-400 mb-3">
+
+                <h2 className="text-2xl md:text-3xl font-bold text-accent mb-3">
                   {game.title}
                 </h2>
-                
-                <p className="text-white/70 mb-4 flex-grow">
+
+                <p className="text-pink mb-4 flex-grow">
                   {game.description}
                 </p>
-                
+
                 {game.available ? (
-                  <Link 
+                  <Link
                     href={game.link}
-                    className="flex items-center justify-center bg-purple-500/20 hover:bg-purple-500/30 text-purple-400 font-medium py-3 px-4 rounded-md transition-colors duration-300"
+                    className="flex items-center justify-center bg-accent2/20 hover:bg-accent2/30 text-accent2 font-medium py-3 px-4 rounded-md transition-colors duration-300"
                   >
-                    Play Now 
+                    Play Now
                     <motion.div
                       animate={hoveredGame === game.title ? { x: [0, 5, 0] } : {}}
                       transition={{ repeat: Infinity, duration: 1 }}
@@ -149,7 +149,7 @@ export default function GamesPage() {
                     </motion.div>
                   </Link>
                 ) : (
-                  <button 
+                  <button
                     disabled
                     className="flex items-center justify-center bg-gray-800 text-gray-400 font-medium py-3 px-4 rounded-md cursor-not-allowed"
                   >
@@ -157,13 +157,13 @@ export default function GamesPage() {
                   </button>
                 )}
               </div>
-              
+
               {game.available && (
-                <motion.div 
-                  className="absolute inset-0 bg-purple-400/5 pointer-events-none"
+                <motion.div
+                  className="absolute inset-0 bg-accent2/5 pointer-events-none"
                   initial={{ opacity: 0 }}
-                  animate={{ 
-                    opacity: hoveredGame === game.title ? 1 : 0 
+                  animate={{
+                    opacity: hoveredGame === game.title ? 1 : 0
                   }}
                   transition={{ duration: 0.3 }}
                 />

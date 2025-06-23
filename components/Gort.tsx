@@ -18,11 +18,11 @@ interface UserInfo {
 }
 
 const containerVariants = {
-  hidden: { 
+  hidden: {
     opacity: 0,
     y: 20
   },
-  visible: { 
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
@@ -34,12 +34,12 @@ const containerVariants = {
 };
 
 const sectionVariants = {
-  hidden: { 
+  hidden: {
     opacity: 0,
     x: -20,
     scale: 0.95
   },
-  visible: { 
+  visible: {
     opacity: 1,
     x: 0,
     scale: 1,
@@ -52,12 +52,12 @@ const sectionVariants = {
 };
 
 const itemVariants = {
-  hidden: { 
+  hidden: {
     opacity: 0,
     x: -10,
     y: 10
   },
-  visible: { 
+  visible: {
     opacity: 1,
     x: 0,
     y: 0,
@@ -148,16 +148,16 @@ export const Gort = () => {
     const canvas = document.createElement('canvas');
     const gl = canvas.getContext('webgl');
     if (!gl) return 'Unknown';
-    
+
     const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
     if (!debugInfo) return 'Unknown';
-    
+
     return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || 'Unknown';
   };
 
   return (
-    <div ref={ref} className="min-h-screen w-full flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-8 overflow-x-hidden">
-      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-5xl p-4 sm:p-6 bg-purple-900/20 border-2 border-purple-500 rounded-xl backdrop-blur-sm mx-auto">
+    <div ref={ref} className="min-h-screen w-full flex flex-col items-center justify-center py-8 md:py-16 px-2 md:px-8 overflow-x-hidden">
+      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-5xl p-4 sm:p-6 bg-accent2/20 border-2 border-accent2 rounded-xl backdrop-blur-sm mx-auto">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           <motion.div variants={sectionVariants} className="flex flex-col items-center lg:w-1/3 lg:sticky lg:top-4">
             <motion.img
@@ -166,26 +166,25 @@ export const Gort = () => {
               className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mb-4"
               initial={{ scale: 0.8, opacity: 0, rotate: -10 }}
               animate={{ scale: 1, opacity: 1, rotate: 0 }}
-              whileHover={{ scale: 1.05, rotate: 5, transition: { duration: 0.3 }}}
+              whileHover={{ scale: 1.05, rotate: 5, transition: { duration: 0.3 } }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             />
-            <motion.h2 
-              className="text-xl sm:text-2xl font-bold text-purple-300 mb-2"
+            <motion.h2
+              className="text-xl sm:text-2xl font-bold text-accent mb-2"
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
               Meet Gort!
             </motion.h2>
-            <p className="text-base sm:text-lg text-zinc-400 text-center px-4 lg:px-0">
+            <p className="text-base sm:text-lg text-text text-center px-4 lg:px-0">
               This is Gort, he wants to be a hacker. Here&apos;s what he found out about you:
             </p>
           </motion.div>
 
           <motion.div variants={sectionVariants} className="lg:w-2/3 space-y-4 sm:space-y-6">
             <motion.div variants={sectionVariants}>
-              <motion.h3 
-                className="text-base sm:text-lg font-semibold text-purple-300 mb-2"
-                whileHover={{ scale: 1.02, x: 5, textShadow: "0 0 8px rgb(139, 92, 246)" }}
+              <motion.h3
+                className="text-base sm:text-lg font-semibold text-accent mb-2"
                 transition={{ duration: 0.2 }}
               >
                 🌐 Network Details
@@ -197,7 +196,7 @@ export const Gort = () => {
             </motion.div>
 
             <motion.div variants={sectionVariants}>
-              <h3 className="text-base sm:text-lg font-semibold text-purple-300 mb-2">
+              <h3 className="text-base sm:text-lg font-semibold text-accent mb-2">
                 💻 Your Device
               </h3>
               <div className="space-y-1 sm:space-y-2">
@@ -210,7 +209,7 @@ export const Gort = () => {
             </motion.div>
 
             <motion.div variants={sectionVariants}>
-              <h3 className="text-base sm:text-lg font-semibold text-purple-300 mb-2">
+              <h3 className="text-base sm:text-lg font-semibold text-accent mb-2">
                 🌐 Browser Info
               </h3>
               <div className="space-y-1 sm:space-y-2">
@@ -221,7 +220,7 @@ export const Gort = () => {
             </motion.div>
 
             <motion.div variants={sectionVariants}>
-              <h3 className="text-base sm:text-lg font-semibold text-purple-300 mb-2">
+              <h3 className="text-base sm:text-lg font-semibold text-accent mb-2">
                 📍 Location
               </h3>
               <div className="space-y-1 sm:space-y-2">
@@ -236,15 +235,15 @@ export const Gort = () => {
 };
 
 const InfoItem = ({ label, value }: { label: string; value: string }) => (
-  <motion.div 
+  <motion.div
     variants={itemVariants}
-    className="flex justify-between items-center py-1 sm:py-1.5 px-2 rounded-lg"
+    className="flex justify-between text-end items-center py-1 sm:py-1.5 px-2 rounded-lg"
     whileHover={{ x: 5, backgroundColor: "rgba(139, 92, 246, 0.1)", scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
     transition={{ duration: 0.2 }}
   >
-    <span className="text-sm sm:text-base text-zinc-400">{label}:</span>
-    <motion.span className="text-sm sm:text-base text-purple-300 font-medium ml-4" whileHover={{ color: "#C4B5FD" }}>
+    <span className="text-xs sm:text-base text-text">{label}:</span>
+    <motion.span className="text-xs sm:text-base text-accent font-medium ml-4" whileHover={{ color: "#C4B5FD" }}>
       {value || 'N/A'}
     </motion.span>
   </motion.div>
