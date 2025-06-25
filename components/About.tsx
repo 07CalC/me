@@ -133,7 +133,7 @@ export const About = () => {
             variants={textVariants}
             className='text-lg md:text-xl text-accent mt-4'
           >
-            i like cats, dogs and racoons
+            i like cats and racoons
           </motion.p>
 
 
