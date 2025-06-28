@@ -1,0 +1,12 @@
+@import 'highlight.js/styles/github-dark.css';
+
+/* For light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    @import 'highlight.js/styles/github.css';
+  }
+}
+/* app/highlight.css */
+.hljs {
+  background: transparent !important;
+}

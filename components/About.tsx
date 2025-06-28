@@ -250,14 +250,10 @@ export const About = () => {
             }}
             className="flex justify-center"
           >
-            <Image
+            <img
               src="https://avatars.githubusercontent.com/u/96346957?v=4"
               alt="Vinayak Maheshwari"
-              width={300}
-              height={300}
-
               className="rounded-full w-48 sm:w-64 md:w-72 border-4 border-accent shadow-[0_0_25px_rgba(134, 180, 250,0.5)] hover:shadow-[0_0_25px_rgba(134,180,250,0.5)]"
-              priority
             />
           </motion.div>
 

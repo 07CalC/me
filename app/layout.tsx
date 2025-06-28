@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import './globals.css';
+import './highlight.css'
 import { Press_Start_2P } from 'next/font/google';
 
 const retroFont = Press_Start_2P({ subsets: ['latin'], weight: '400' });
