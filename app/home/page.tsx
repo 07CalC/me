@@ -7,16 +7,16 @@ import { Projects } from '@/components/Projects';
 import Experience from '@/components/Experience';
 import { GamesFAB } from '@/components/GamesFAB';
 import { Gort } from '@/components/Gort';
+import { BlogFAB } from '@/components/BlogFAB';
 
-// Animation variants for sections
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { 
-      duration: 0.8, 
-      ease: "easeOut" 
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
     }
   }
 };
@@ -27,7 +27,7 @@ export default function Home() {
   const projectsRef = useRef(null);
   const experienceRef = useRef(null);
   const gortRef = useRef(null);
-  
+
   const aboutInView = useInView(aboutRef, { once: true, amount: 0.2 });
   const skillsInView = useInView(skillsRef, { once: true, amount: 0.2 });
   const projectsInView = useInView(projectsRef, { once: true, amount: 0.2 });
@@ -37,6 +37,7 @@ export default function Home() {
   return (
     <>
       <GamesFAB />
+      <BlogFAB />
       <motion.section
         ref={aboutRef}
         initial="hidden"

@@ -4,31 +4,49 @@ import { getPostBySlug, getAllPost } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { MDXComponents } from '@/components/MDXComponents';
 
+type Props = {
+  params: Promise<{ slug: string }>,
+}
+
 export async function generateStaticParams() {
   const posts = getAllPost();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
+export async function generateMetadata(params: Props) {
+  const slug = (await params.params).slug
+  const post = getPostBySlug(slug);
   if (!post) return {};
 
   return {
     title: post.meta.title,
     description: post.meta.description,
+    openGraph: {
+      title: post.meta.title,
+      description: post.meta.description,
+      images: post.meta.image ? [post.meta.image] : [],
+      type: 'article',
+      publishedTime: new Date(post.meta.date).toISOString(),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.meta.title,
+      description: post.meta.description,
+      images: post.meta.image ? [post.meta.image] : [],
+    },
   };
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
+export default async function BlogPostPage(params: Props) {
+  const slug = (await params.params).slug
+  const post = getPostBySlug(slug);
 
   if (!post) return notFound();
-  console.log(post.content)
 
   return (
     <main className="min-h-screen flex items-start justify-center sm:px-4 font-mono text-base leading-relaxed">
       <article className="mx-auto gap-y-3 rounded-lg py-4 px-4 max-w-5xl text-start bg-black/20">
-        <h1 className="text-3xl font-bold text-accent mb-4">{post.meta.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-accent mb-4">{post.meta.title}</h1>
 
         <p className="text-2xl mb-4 text-pink">{post.meta.description}</p>
         <div className="text-lg text-text mb-8 flex flex-col items-start gap-2">

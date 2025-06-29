@@ -1,7 +1,6 @@
-
-import Image from 'next/image';
 import type { MDXComponents as MDXComponentType } from 'mdx/types';
 import { CopyButton } from './CopyButton';
+import BlogFooter from '@/content/BlogFooter';
 
 export const MDXComponents: MDXComponentType = {
   h1: (props) => {
@@ -37,7 +36,7 @@ export const MDXComponents: MDXComponentType = {
     <ol {...props} className="list-decimal pl-6 text-sm font-mono text-start my-2" />
   ),
   li: (props) => (
-    <li {...props} className="text-sm font-mono text-start" />
+    <li {...props} className="text-lg font-mono text-start" />
   ),
   blockquote: (props) => (
     <blockquote
@@ -65,15 +64,29 @@ export const MDXComponents: MDXComponentType = {
   pre: (props) => (
     <pre {...props} className="bg-gray-100 dark:bg-gray-900 p-4 rounded overflow-x-auto text-sm font-mono my-4" />
   ),
-  img: (props: any) => (
-    <div className="flex justify-center my-6">
-      <Image
+  a: (props) => (
+    <a
+      {...props}
+      className="text-blue-500 transition-colors underline"
+      target="_blank"
+      rel="noopener noreferrer"
+    />
+  ),
+  img: (props) => (
+    <div className="flex flex-col items-center w-full my-6">
+      <img
         alt={props.alt}
         src={props.src}
-        width={props.width || 800}
-        height={props.height || 400}
-        className="rounded-lg"
+        className="rounded-lg max-w-full h-auto"
       />
+      {props.alt && (
+        <p className="text-sm text-muted-foreground mt-2 text-center font-mono">
+          {props.alt}
+        </p>
+      )}
     </div>
   ),
+  BlogFooter: () => (
+    <BlogFooter />
+  )
 };

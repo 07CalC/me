@@ -1,8 +1,17 @@
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter"
-import { compile } from "@mdx-js/mdx";
 
+export type Post = {
+  slug: string;
+  meta: {
+    title: string;
+    description: string;
+    date: string;
+    tags?: string[];
+    image?: string;
+  };
+};
 
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog');
@@ -17,13 +26,13 @@ export function getAllPost() {
 
     return {
       slug,
-      ...data,
+      meta: data as Post['meta'],
     };
   })
 }
 
 
-export async function getPostBySlug(slug: string) {
+export function getPostBySlug(slug: string) {
   const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
   if (!fs.existsSync(filePath)) {
     return null;
@@ -31,6 +40,6 @@ export async function getPostBySlug(slug: string) {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const { content, data } = matter(fileContent);
 
-  return { slug, meta: data, content: content };
+  return { slug, meta: data as Post['meta'], content: content };
 }
 

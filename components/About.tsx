@@ -3,7 +3,6 @@
 import { motion, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { useInView } from "framer-motion";
-import Image from "next/image";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiGithubFill, RiInstagramLine, RiLinkedinBoxLine, RiTwitterXLine } from "react-icons/ri";
 import { HiOutlineDocumentDownload } from "react-icons/hi";

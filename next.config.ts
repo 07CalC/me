@@ -11,9 +11,6 @@ const nextConfig: NextConfig = {
         hostname: "avatars.githubusercontent.com"
       }
     ]
-  },
-  experimental: {
-    cpus: 1
   }
 };
 

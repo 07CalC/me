@@ -1,4 +1,5 @@
 'use client';
+import { BlogFAB } from '@/components/BlogFAB';
 import { GamesFAB } from '@/components/GamesFAB';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -21,6 +22,7 @@ export default function HomePage() {
   return (
     <main className="h-screen flex flex-col items-center justify-center">
       <GamesFAB />
+      <BlogFAB />
       <motion.pre
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
