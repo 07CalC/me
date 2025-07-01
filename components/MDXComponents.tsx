@@ -6,7 +6,7 @@ export const MDXComponents: MDXComponentType = {
   h1: (props) => {
     return (
       <h1
-        className="text-3xl font-bold font-mono text-start text-accent2 my-6"
+        className="text-4xl font-bold font-mono text-start text-accent2 my-6"
         {...props}
       />
     )
@@ -14,20 +14,20 @@ export const MDXComponents: MDXComponentType = {
   h2: (props) => (
     <h2
       {...props}
-      className="text-2xl font-semibold font-mono text-start text-accent2 my-5"
+      className="text-3xl font-semibold font-mono text-start text-accent2 my-5"
     />
   ),
   h3: (props) => (
     <h3
       {...props}
-      className="text-xl font-semibold font-mono text-start text-accent2 my-4"
+      className="text-2xl font-semibold font-mono text-start text-accent2 my-4"
     />
   ),
   p: (props) => (
-    <p {...props} className="text-lg font-mono text-start my-2 text-text" />
+    <p {...props} className="text-xl font-mono text-start my-2 text-text" />
   ),
   H: (props) => (
-    <span {...props} className="text-lg font-mono text-start my-2 text-accent" />
+    <span {...props} className="text-xl font-mono text-start my-2 text-accent" />
   ),
   ul: (props) => (
     <ul {...props} className="list-disc pl-6 text-sm font-mono text-start my-2" />
@@ -51,7 +51,7 @@ export const MDXComponents: MDXComponentType = {
 
     return (
       <div className="relative group">
-        <pre className="bg-gray-100 dark:bg-gray-800  rounded-lg overflow-x-auto text-sm">
+        <pre className="bg-gray-100 dark:bg-gray-800  rounded-lg overflow-x-auto text-xl">
           <code {...props} />
         </pre>
         <CopyButton

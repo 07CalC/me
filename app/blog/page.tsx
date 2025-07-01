@@ -13,7 +13,7 @@ export default async function BlogPage() {
         Here you might find some interesting experiences and insights.
         Expect one new post every 2 sunday, no promises though!
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
         {posts.map((post: Post) => (
           <Link
             href={`/blog/${post.slug}`}
@@ -25,7 +25,7 @@ export default async function BlogPage() {
             <p className="text-pink text-sm mt-2">{post.meta.description}</p>
 
             <div className="text-sm text-text mt-2 flex flex-wrap gap-2 items-center">
-              <span className="text-xs bg-bg px-2 py-0.5 rounded">
+              <span className="text-sm bg-accent/30 text-text px-2 py-0.5 rounded">
                 {new Date(post.meta.date).toLocaleDateString('en-IN', {
                   year: 'numeric',
                   month: 'short',

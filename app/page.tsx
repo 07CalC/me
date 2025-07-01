@@ -8,29 +8,48 @@ import { useAsciiText, slant } from 'react-ascii-text';
 
 
 export default function HomePage() {
-  const asciiTextRef = useAsciiText({
+  const asciiTextRefLeft = useAsciiText({
     animationCharacters: "▒░█",
-    animationCharacterSpacing: 1,
+    animationCharacterSpacing: 5,
     animationDelay: 2000,
-    animationDirection: "down",
-    animationInterval: 100,
+    animationDirection: "vertical",
+    animationInterval: 200,
     animationLoop: true,
     animationSpeed: 30,
     font: slant,
-    text: ["Vinayak"],
+    text: ["Vina", "Ca"],
+  });
+  const asciiTextRefRight = useAsciiText({
+    animationCharacters: "▒░█",
+    animationCharacterSpacing: 5,
+    animationDelay: 2000,
+    animationDirection: "vertical",
+    animationInterval: 200,
+    animationLoop: true,
+    animationSpeed: 30,
+    font: slant,
+    text: ["yaK", "lC"],
   });
   return (
     <main className="h-screen flex flex-col items-center justify-center">
       <GamesFAB />
       <BlogFAB />
-      <motion.pre
-        initial={{ opacity: 0, scale: 0.9 }}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
-        className="text-xs md:text-base text-center mb-6 whitespace-pre leading-tight"
+        className="flex flex-row text-xs md:text-base text-center mb-6 leading-tight font-mono"
       >
-        <pre ref={asciiTextRef as Ref<HTMLPreElement>}></pre>
-      </motion.pre>
+        <pre
+          ref={asciiTextRefLeft as Ref<HTMLPreElement>}
+          className="text-accent whitespace-pre leading-tight"
+          style={{ marginRight: '-0.5ch' }} // Tune this value
+        />
+        <pre
+          ref={asciiTextRefRight as Ref<HTMLPreElement>}
+          className="text-accent2 whitespace-pre leading-tight"
+        />
+      </motion.div>
       <div className='flex gap-x-5'>
         <motion.div
           initial={{ opacity: 0 }}
@@ -38,7 +57,7 @@ export default function HomePage() {
           transition={{ delay: 1 }}
           className="flex gap-4"
         >
-          <Link href="/blog" className="border-2 border-border rounded-2xl px-4 py-2 hover:bg-glow">Blog</Link>
+          <Link href="/blog" className="border-2 border-accent text-accent rounded-2xl px-4 py-2 hover:bg-glow">Blog</Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -46,7 +65,7 @@ export default function HomePage() {
           transition={{ delay: 1 }}
           className="flex gap-4"
         >
-          <Link href="/home" className="border-2 border-border rounded-2xl px-4 py-2 hover:bg-glow">Home</Link>
+          <Link href="/home" className="border-2 border-accent2 text-accent2 rounded-2xl px-4 py-2 hover:bg-glow">Home</Link>
         </motion.div>
       </div>
     </main>
