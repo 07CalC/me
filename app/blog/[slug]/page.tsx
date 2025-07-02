@@ -44,7 +44,7 @@ export default async function BlogPostPage(params: Props) {
   if (!post) return notFound();
 
   return (
-    <main className="min-h-screen flex items-start justify-center sm:px-4 font-mono text-base leading-relaxed">
+    <main className="min-h-screen flex items-start justify-center font-mono text-base leading-relaxed">
       <article className="mx-auto gap-y-3 rounded-lg py-4 px-4 max-w-5xl text-start bg-black/20">
         <h1 className="text-3xl md:text-4xl font-bold text-accent mb-4">{post.meta.title}</h1>
 

@@ -18,28 +18,31 @@ export default async function BlogPage() {
           <Link
             href={`/blog/${post.slug}`}
             key={post.slug}
-            className="p-4 border-2 bg-accent2/20 border-accent2 rounded-lg hover:shadow-lg transition-shadow"
+            className="relative border-2 bg-accent2/20 pb-8 border-accent2 flex flex-col gap-y-3 rounded-lg hover:shadow-lg transition-shadow"
           >
-            <h3 className="text-xl font-semibold text-accent hover:underline">{post.meta.title}</h3>
-
-            <p className="text-pink text-sm mt-2">{post.meta.description}</p>
-
-            <div className="text-sm text-text mt-2 flex flex-wrap gap-2 items-center">
-              <span className="text-sm bg-accent/30 text-text px-2 py-0.5 rounded">
-                {new Date(post.meta.date).toLocaleDateString('en-IN', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                })}
-              </span>
-            </div>
             {post.meta.image && (
               <img
                 src={post.meta.image}
                 alt={post.meta.title}
-                className="mt-4 w-full rounded-lg"
+                className="w-full rounded-lg"
               />
             )}
+
+            <h3 className="text-xl px-2 font-semibold text-accent hover:underline">
+              {post.meta.title}
+            </h3>
+
+            <p className="text-pink text-sm px-2">
+              {post.meta.description}
+            </p>
+
+            <span className="absolute bottom-2 right-2 text-sm bg-accent/30 text-text px-2 py-0.5 rounded">
+              {new Date(post.meta.date).toLocaleDateString('en-IN', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+              })}
+            </span>
           </Link>
         ))}
       </div>
