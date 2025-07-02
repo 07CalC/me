@@ -27,13 +27,13 @@ export const MDXComponents: MDXComponentType = {
     <p {...props} className="text-xl font-mono text-start my-2 text-text" />
   ),
   H: (props) => (
-    <span {...props} className="text-xl font-mono text-start my-2 text-accent" />
+    <span {...props} className="text-lg font-mono text-start my-2 text-accent" />
   ),
   ul: (props) => (
-    <ul {...props} className="list-disc pl-6 text-sm font-mono text-start my-2" />
+    <ul {...props} className="list-disc pl-6 text-lg font-mono text-start my-2" />
   ),
   ol: (props) => (
-    <ol {...props} className="list-decimal pl-6 text-sm font-mono text-start my-2" />
+    <ol {...props} className="list-decimal pl-6 text-lg font-mono text-start my-2" />
   ),
   li: (props) => (
     <li {...props} className="text-lg font-mono text-start" />
@@ -46,23 +46,34 @@ export const MDXComponents: MDXComponentType = {
   ),
   code: (props) => {
     if (!props.className?.includes('language-')) {
-      return <code {...props} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded" />;
+      return (
+        <code
+          {...props}
+          className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm font-mono"
+        />
+      );
     }
-
     return (
-      <div className="relative group">
-        <pre className="bg-gray-100 dark:bg-gray-800  rounded-lg overflow-x-auto text-xl">
-          <code {...props} />
-        </pre>
+      <div className="relative my-6 group">
+        <code
+          {...props}
+          className={`block p-0 text-sm sm:text-base ${props.className || ''}`}
+        />
+
         <CopyButton
-          text={String(props.children)}
-          className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+          text={props.children}
+          className="absolute top-0 right-3 opacity-0 group-hover:opacity-100 
+                 transition-opacity bg-gray-700/80 hover:bg-gray-600/80 
+                 p-1.5 rounded text-xs"
         />
       </div>
     );
   },
   pre: (props) => (
-    <pre {...props} className="bg-gray-100 dark:bg-gray-900 p-4 rounded overflow-x-auto text-sm font-mono my-4" />
+    <pre
+      {...props}
+      className="bg-bg text-white max-w-[80vw] rounded-lg overflow-x-auto text-sm md:text-base"
+    />
   ),
   a: (props) => (
     <a

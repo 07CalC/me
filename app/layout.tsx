@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import './globals.css';
 import './highlight.css'
 import { Press_Start_2P } from 'next/font/google';
+import Head from './head';
 
 const retroFont = Press_Start_2P({ subsets: ['latin'], weight: '400' });
 
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <Head />
       <body className={` text-text ${retroFont.className} p-4 pb-10`}>
 
         {children}
