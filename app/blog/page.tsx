@@ -2,6 +2,12 @@ import { getAllPost, Post } from '../../lib/blog';
 import Link from 'next/link';
 import { BackButton } from './backButton';
 
+
+export const metadata = {
+  title: 'Blog | Vinayak',
+  description: 'Blog posts about my experiences, insights, and thoughts on various topics.',
+}
+
 export default async function BlogPage() {
   const posts = getAllPost(); return (
     <section className="mx-auto py-8">
