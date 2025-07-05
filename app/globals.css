@@ -1,9 +1,5 @@
 @import "tailwindcss";
-
-
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap');
 
 body {
   background-color: #1e1e2e;
@@ -12,7 +8,10 @@ body {
 }
 
 
-
+.bitcount-grid-double {
+  font-family: "Bitcount Grid Double";
+  font-weight: 600;
+}
 
 .skill-card:hover {
   transform: scale(1.05);

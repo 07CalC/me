@@ -92,8 +92,7 @@ const projects = [
     ],
     github: "https://github.com/07calc/jeelore",
     demo: "https://jeelore.site/",
-  },
-  {
+  }, {
     title: "Batua",
     description: `A web application that allows users to track their expenses and providing insights into their financial habits.`,
     tech: [
@@ -266,7 +265,7 @@ export const Projects = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="bg-accent2/20 border-accent2 border-2 rounded-xl p-4 sm:p-6 shadow-lg h-full flex flex-col justify-between"
+              className="bg-accent2/40 border-accent2 border-2 rounded-xl p-4 sm:p-6 shadow-lg h-full flex flex-col justify-between"
             >
               <div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl mb-2 md:mb-4 text-accent font-bold">{project.title}</h2>

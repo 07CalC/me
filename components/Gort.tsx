@@ -157,7 +157,7 @@ export const Gort = () => {
 
   return (
     <div ref={ref} className="min-h-screen w-full flex flex-col items-center justify-center py-8 md:py-16 px-2 md:px-8 overflow-x-hidden">
-      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-5xl p-4 sm:p-6 bg-accent2/20 border-2 border-accent2 rounded-xl backdrop-blur-sm mx-auto">
+      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-5xl p-4 sm:p-6 bg-accent2/40 border-2 border-accent2 rounded-xl backdrop-blur-sm mx-auto">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           <motion.div variants={sectionVariants} className="flex flex-col items-center lg:w-1/3 lg:sticky lg:top-4">
             <motion.img

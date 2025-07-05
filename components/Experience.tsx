@@ -96,7 +96,7 @@ export function Experience() {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="bg-accent2/20 border-accent2 border-2 rounded-xl p-4 sm:p-6 md:p-8 w-full"
+            className="bg-accent2/40 border-accent2 border-2 rounded-xl p-4 sm:p-6 md:p-8 w-full"
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               {/* Company logo - smaller on mobile */}
