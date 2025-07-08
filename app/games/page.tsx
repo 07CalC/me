@@ -108,11 +108,18 @@ export default function GamesPage() {
             <motion.div
               key={game.title}
               variants={itemVariants}
-              className={`relative rounded-xl border-2  ${game.available
-                ? "border-accent2 bg-accent2/5 hover:shadow-lg hover:shadow-purple-400/20"
+              className={`relative border-2  ${game.available
+                ? "border-border bg-surface "
                 : "border-border opacity-70"
-                } overflow-hidden flex flex-col h-full transition duration-300 ease-in-out`}
-              onMouseEnter={() => setHoveredGame(game.title)}
+                } overflow-hidden flex flex-col h-full transition ease-in-out    
+  duration-200 
+  shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] 
+  hover:-translate-y-2 
+  hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] 
+  active:translate-y-2
+  active:translate-x-2
+  active:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)]
+`}
               onMouseLeave={() => setHoveredGame(null)}
             >
               <div className="p-6 md:p-8 flex-1 flex flex-col">
@@ -131,14 +138,14 @@ export default function GamesPage() {
                   {game.title}
                 </h2>
 
-                <p className="text-pink mb-4 flex-grow">
+                <p className="text-white mb-4 flex-grow">
                   {game.description}
                 </p>
 
                 {game.available ? (
                   <Link
                     href={game.link}
-                    className="flex items-center justify-center bg-accent2/20 hover:bg-accent2/30 text-accent2 font-medium py-3 px-4 rounded-md transition-colors duration-300"
+                    className="flex items-center justify-center hover:bg-glow border-2 border-border white font-medium py-3 px-4 rounded-md transition-colors duration-300"
                   >
                     Play Now
                     <motion.div

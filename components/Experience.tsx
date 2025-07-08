@@ -58,19 +58,6 @@ export function Experience() {
     }
   };
 
-  const techStackVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 15,
-        stiffness: 80,
-        duration: 0.4
-      }
-    }
-  };
 
   return (
     <div
@@ -96,7 +83,12 @@ export function Experience() {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="bg-accent2/40 border-accent2 border-2 rounded-xl p-4 sm:p-6 md:p-8 w-full"
+            className="bg-surface border-border  transition-all 
+  ease-in-out 
+  duration-200 
+  shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] 
+  hover:-translate-y-2 
+  hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]  border-2 p-4 sm:p-6 md:p-8 w-full"
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               {/* Company logo - smaller on mobile */}
@@ -161,12 +153,11 @@ export function Experience() {
                   {job.techStack.map((tech, techIndex) => (
                     <motion.span
                       key={techIndex}
-                      variants={techStackVariants}
-                      whileHover={{
-                        scale: 1.05,
-                        transition: { duration: 0.2 }
-                      }}
-                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-accent/30 text-accent text-sm sm:text-lg font-mono rounded-md transition-colors duration-200"
+                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-accent/30 text-accent text-sm sm:text-lg font-mono rounded-md duration-200  transition-all 
+  ease-in-out 
+  shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] 
+  hover:-translate-y-1 
+  hover:shadow-[5px_5px_0px_rgba(255,255,255,1)] "
                     >
                       {tech}
                     </motion.span>

@@ -207,19 +207,6 @@ export const Projects = () => {
     }
   };
 
-  const techStackVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 15,
-        stiffness: 80,
-        duration: 0.4
-      }
-    }
-  };
   return (
     <div ref={ref} className="min-h-screen w-full flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-6 overflow-x-hidden">
       <motion.h1
@@ -238,7 +225,6 @@ export const Projects = () => {
         animate={controls}
       >
         {projects.map((project, idx) => {
-          // Alternate between left and right animations
           const isEven = idx % 2 === 0;
 
           const itemVariants = {
@@ -265,49 +251,61 @@ export const Projects = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="bg-accent2/40 border-accent2 border-2 rounded-xl p-4 sm:p-6 shadow-lg h-full flex flex-col justify-between"
+              className="bg-surface border-border border-2  p-4 sm:p-6 h-full flex flex-col justify-between
+                transition-all 
+  ease-in-out 
+  duration-200 
+  shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] 
+  hover:-translate-y-2 
+  hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] 
+"
             >
               <div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl mb-2 md:mb-4 text-accent font-bold">{project.title}</h2>
-                <p className="mb-3 md:mb-5 text-sm md:text-md text-pink ">{project.description}</p>
-                <div className="flex flex-wrap gap-2 md:gap-3 mb-4">
+                <p className="mb-3 md:mb-5 text-sm md:text-md text-text ">{project.description}</p>
+                <div className="flex flex-wrap gap-2  mb-4">
                   {project.tech && project.tech.map((tech, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-center gap-1 sm:gap-2 bg-accent/30 px-2 sm:px-3 py-1 rounded-lg"
-                      whileHover={{
-                        scale: 1.05,
-                        transition: { duration: 0.2 }
-                      }}
-                      variants={techStackVariants}
+                      className="flex items-center gap-1 sm:gap-2 bg-accent/30 px-2 sm:px-3 py-1   transition-all 
+  ease-in-out 
+  duration-200 
+  shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] 
+  hover:-translate-y-1 
+  hover:shadow-[5px_5px_0px_0px_rgba(255,255,255,1)] 
+"
                     >
                       <ReactSVG
                         beforeInjection={(svg) => {
                           svg.setAttribute(
                             "style",
-                            "width: 16px; height: 16px;"
+                            "width: 18px; height: 18px;"
                           );
                         }}
                         src={tech.icon}
                         className="w-4 h-4 sm:w-5 sm:h-5"
                       />
-                      <span className="text-xs sm:text-sm text-accent">{tech.name}</span>
+                      <span className="text-xs sm:text-lg text-white">{tech.name}</span>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 sm:gap-4 text-sm sm:text-base md:text-lg mt-auto">
+              <div className="flex flex-wrap justify-end gap-2 sm:gap-4 text-sm sm:text-base md:text-lg mt-auto">
                 {project.github && (
                   <motion.a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex border-2 hover:bg-glow/50 border-accent px-2 py-1 sm:p-2 justify-center items-center gap-1 transition-colors duration-200 rounded-md flex-1 md:flex-none"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="flex border-2 hover:bg-glow/50 border-border px-2 py-1 sm:p-2 justify-center items-center gap-1 flex-1 md:flex-none  transition-all 
+  ease-in-out 
+  duration-200 
+  shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] 
+  active:translate-y-2
+  active:translate-x-2
+  active:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)]"
                   >
-                    <FaGithub className="text-sm sm:text-base md:text-xl text-accent" />
+                    <FaGithub className="text-sm sm:text-base md:text-3xl text-accent" />
                     <span className="hidden xs:inline">Code</span>
                   </motion.a>
                 )}
@@ -316,11 +314,16 @@ export const Projects = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex border-2 hover:bg-glow/50 border-accent px-2 py-1 sm:p-2 justify-center items-center gap-1 transition-colors duration-200 rounded-md flex-1 md:flex-none"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="flex border-2 hover:bg-glow/50 border-border px-2 py-1 sm:p-2 justify-center items-center gap-1 flex-1 md:flex-none
+                    transition-all 
+  ease-in-out 
+  duration-200 
+  shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] 
+  active:translate-y-2
+  active:translate-x-2
+  active:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)]"
                   >
-                    <FaExternalLinkAlt className="text-sm sm:text-base md:text-xl text-accent" />
+                    <FaExternalLinkAlt className="text-sm sm:text-base md:text-3xl text-accent" />
                     <span className="hidden xs:inline">Demo</span>
                   </motion.a>
                 )}

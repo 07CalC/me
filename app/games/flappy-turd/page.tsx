@@ -100,7 +100,6 @@ export default function FlappyTurdGame() {
     });
   });
 
-  // Pipe generator
   useEffect(() => {
     if (!isRunning) return;
 
@@ -173,10 +172,10 @@ export default function FlappyTurdGame() {
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center z-50 p-4 md:p-0">
       <div className="w-full mx-auto flex flex-col items-center">
-        <div className="w-full flex justify-between items-center mb-4 px-2 md:px-4">
+        <div className="md:absolute md:top-4 self-start mb-10 left-4 z-10">
           <Link
             href="/games"
-            className="text-accent hover:text-glow flex items-start self-start transition-colors duration-300 text-sm md:text-base"
+            className="mt-6 ml-6 text-accent hover:text-glow flex items-center transition-colors duration-300"
           >
             <motion.span
               initial={{ x: -5, opacity: 0 }}
@@ -184,12 +183,11 @@ export default function FlappyTurdGame() {
               transition={{ delay: 0.5 }}
               className="mr-2"
             >
-              <FaArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
+              <FaArrowLeft className="mr-2" />
             </motion.span>
             Back
           </Link>
         </div>
-
         <div className="text-center mb-4 w-full">
           <h1 className="text-xl md:text-4xl font-bold text-accent mb-2">Flappy Turd</h1>
           <div className="flex justify-center gap-4 md:gap-8 text-sm md:text-base text-white">

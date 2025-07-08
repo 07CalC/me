@@ -13,18 +13,27 @@ export default async function BlogPage() {
     <section className="mx-auto py-8">
       <div className="mb-8 flex items-center justify-center">
         <BackButton />
-        <h1 className="text-3xl font-bold mt-6 text-center text-accent">Blog</h1>
+        <h1 className="text-5xl font-bold mt-6 text-center text-accent">Blog</h1>
       </div>
       <p className="text-center text-text text-sm sm:text-lg mb-8">
         Here you might find some interesting experiences and insights.
         Expect one new post every 2 sunday, no promises though!
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
         {posts.map((post: Post) => (
           <Link
             href={`/blog/${post.slug}`}
             key={post.slug}
-            className="relative border-2 bg-accent2/20 pb-8 border-accent2 flex flex-col gap-y-3 rounded-lg hover:shadow-lg transition-shadow"
+            className="relative border-2 bg-surface pb-8 border-border flex flex-col gap-y-3                 transition-all 
+  ease-in-out 
+  duration-200 
+  shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] 
+  hover:-translate-y-2 
+  hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] 
+  active:translate-y-2
+  active:translate-x-2
+  active:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)]
+"
           >
             {post.meta.image && (
               <img
@@ -38,7 +47,7 @@ export default async function BlogPage() {
               {post.meta.title}
             </h3>
 
-            <p className="text-pink text-sm px-2">
+            <p className="text-white text-sm px-2">
               {post.meta.description}
             </p>
 

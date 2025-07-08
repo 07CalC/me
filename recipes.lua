@@ -11,8 +11,7 @@ return {
       docker rm me || true &&
       docker run -d --name me -p 6969:3000 ghcr.io/07calc/me:latest &&
       docker system prune -a -f
-			echo "Deployment complete"
-   		EOF
+	echo "Deployment complete"
     ]],
 	},
 }
