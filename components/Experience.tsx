@@ -145,7 +145,7 @@ export function Experience() {
                 </motion.p>
 
                 <motion.div
-                  className="flex flex-wrap gap-1 sm:gap-2 mt-3 md:mt-4"
+                  className="flex flex-wrap gap-1 sm:gap-3 mt-3 md:mt-4"
                   variants={containerVariants}
                   initial="hidden"
                   animate={controls}
@@ -153,7 +153,7 @@ export function Experience() {
                   {job.techStack.map((tech, techIndex) => (
                     <motion.span
                       key={techIndex}
-                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-accent/30 text-accent text-sm sm:text-lg font-mono rounded-md duration-200  transition-all 
+                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-accent/30 text-accent text-sm sm:text-lg  duration-200  transition-all 
   ease-in-out 
   shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] 
   hover:-translate-y-1 

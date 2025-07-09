@@ -2,34 +2,9 @@ import { motion, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { useInView } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-import { ReactSVG } from "react-svg";
+import Image from "next/image";
 
 const projects = [
-  {
-    title: "Dorara",
-    description: `An all-in-one productivity app that combines to-do lists, notes, and journaling to help users stay organized and track their
-  daily activities.`,
-    tech: [
-      {
-        name: "React Native",
-        icon: "/react.svg",
-      },
-      {
-        name: "Expo",
-        icon: "/expo.svg",
-      },
-      {
-        name: "Sqlite",
-        icon: "/sqlite.svg",
-      },
-      {
-        name: "Nativewind CSS",
-        icon: "/tailwind.svg",
-      },
-    ],
-    github: "https://github.com/07Calc/dorara",
-    demo: "https://github.com/07CalC/Dorara/releases/tag/v1.2"
-  },
   {
     title: "Crux",
     description: `A web platform that provides previous years' opening and closing ranks for various colleges under JoSAA and CSAB,
@@ -58,6 +33,58 @@ const projects = [
     ],
     github: "https://github.com/07calc/crux",
     demo: "https://crux.ix.tc/",
+  },
+  {
+    title: "Dorara",
+    description: `An all-in-one productivity app that combines to-do lists, notes, and journaling to help users stay organized and track their
+  daily activities.`,
+    tech: [
+      {
+        name: "React Native",
+        icon: "/react.svg",
+      },
+      {
+        name: "Expo",
+        icon: "/expo.svg",
+      },
+      {
+        name: "Sqlite",
+        icon: "/sqlite.svg",
+      },
+      {
+        name: "Nativewind CSS",
+        icon: "/tailwind.svg",
+      },
+    ],
+    github: "https://github.com/07Calc/dorara",
+    demo: "https://github.com/07CalC/Dorara/releases/tag/v1.2"
+  },
+  {
+    title: "Cook.nvim",
+    description: `cook.nvim is a modular and extensible Neovim plugin that lets you effortlessly compile or run the current file based on its filetype — inside a floating terminal.`,
+    tech: [
+      {
+        name: "Lua",
+        icon: "/lua.svg"
+      },
+      {
+        name: "Neovim",
+        icon: "/neovim.svg"
+      }
+    ],
+    github: "https://github.com/07calc/cook.nvim",
+  },
+  {
+    title: "LaxCI",
+    description: `LaxCI is a blazing-fast, minimal CI runner written in Rust that executes workflows defined in a laxci.yml file — just like GitHub Actions, but entirely local.`,
+    tech: [
+      {
+        name: "Rust",
+        icon: "/rust.svg"
+      }
+    ],
+    github: "https://github.com/07calc/laxci",
+    demo: "https://crates.io/crates/laxci"
   },
   {
     title: "JeeLore",
@@ -118,34 +145,11 @@ const projects = [
     demo: "https://batua.site/",
   },
   {
-    title: "TaskyBara",
-    description: `TaskyBara is a modern, intuitive web application designed to help individuals and teams stay organized and productive. With a clean interface and powerful features, TaskFlow lets you create, manage, and prioritize tasks seamlessly.`,
-    tech: [
-      {
-        name: "Next.js",
-        icon: "/nextjs.svg"
-      },
-      {
-        name: "Tailwind CSS",
-        icon: "tailwind.svg"
-      },
-      {
-        name: "PostgreSQL",
-        icon: "Postgres.svg"
-      },
-      {
-        name: "Drizzle",
-        icon: "drizzle.svg"
-      }
-    ],
-    github: "https://github.com/07calc/taskybara"
-  },
-  {
     title: "RustProx",
     tech: [
       {
         name: "Rust",
-        icon: "/axum.svg"
+        icon: "/rust.svg"
       }
     ],
     description: `RustProx is a lightweight, command-line proxy toggler built with Rust, designed to quickly enable or disable system or application-level proxy settings. Ideal for developers and network administrators.`,
@@ -158,26 +162,12 @@ Includes stats, ignore filters, text export, and human-readable performance timi
     tech: [
       {
         name: "Rust",
-        icon: "/axum.svg"
+        icon: "/rust.svg"
       }
     ],
     github: "https://github.com/07calc/vtreex",
+    demo: "https://crates.io/crates/vtreex"
   },
-  {
-    title: "Cook.nvim",
-    description: `cook.nvim is a modular and extensible Neovim plugin that lets you effortlessly compile or run the current file based on its filetype — inside a floating terminal.`,
-    tech: [
-      {
-        name: "Lua",
-        icon: "/lua.svg"
-      },
-      {
-        name: "Neovim",
-        icon: "/neovim.svg"
-      }
-    ],
-    github: "https://github.com/07calc/cook.nvim",
-  }
 ];
 
 export const Projects = () => {
@@ -263,7 +253,7 @@ export const Projects = () => {
               <div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl mb-2 md:mb-4 text-accent font-bold">{project.title}</h2>
                 <p className="mb-3 md:mb-5 text-sm md:text-md text-text ">{project.description}</p>
-                <div className="flex flex-wrap gap-2  mb-4">
+                <div className="flex flex-wrap gap-3  mb-4">
                   {project.tech && project.tech.map((tech, index) => (
                     <motion.div
                       key={index}
@@ -275,15 +265,12 @@ export const Projects = () => {
   hover:shadow-[5px_5px_0px_0px_rgba(255,255,255,1)] 
 "
                     >
-                      <ReactSVG
-                        beforeInjection={(svg) => {
-                          svg.setAttribute(
-                            "style",
-                            "width: 18px; height: 18px;"
-                          );
-                        }}
+                      <Image
+                        width={500}
+                        height={500}
                         src={tech.icon}
-                        className="w-4 h-4 sm:w-5 sm:h-5"
+                        alt={tech.name}
+                        className="w-4 sm:w-8 h-4 sm:h-8 object-contain"
                       />
                       <span className="text-xs sm:text-lg text-white">{tech.name}</span>
                     </motion.div>

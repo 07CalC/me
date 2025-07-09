@@ -14,7 +14,7 @@ export const BlogFAB = () => {
   shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] 
   active:translate-y-2
   active:translate-x-2
-  active:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)]'
+  active:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)] animate-pulse'
     >
       <FaPenNib className='md:text-3xl text-xl group-hover:animate-wiggle' />
       <span className='md:text-lg ml-2 text-sm'>Blog</span>

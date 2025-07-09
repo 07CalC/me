@@ -57,7 +57,8 @@ export default function HomePage() {
           transition={{ delay: 1 }}
           className="flex gap-4"
         >
-          <Link href="/blog" className="border-2 border-accent text-accent rounded-2xl px-4 py-2 hover:bg-glow">Blog</Link>
+          <Link href="/blog"
+            className="border-2 border-border bg-accent text-white px-4 py-2 hover:bg-accent/60 transition-all ease-in-out duration-200 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]   active:translate-y-2 active:translate-x-2 active:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)]">Blog</Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -65,9 +66,11 @@ export default function HomePage() {
           transition={{ delay: 1 }}
           className="flex gap-4"
         >
-          <Link href="/home" className="border-2 border-accent2 text-accent2 rounded-2xl px-4 py-2 hover:bg-glow">Home</Link>
+          <Link href="/home"
+            className="border-2 border-border bg-accent2 text-white px-4 py-2 hover:bg-accent2/60 transition-all ease-in-out duration-200 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]   active:translate-y-2 active:translate-x-2 active:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)]"
+          >Home</Link>
         </motion.div>
       </div>
-    </main>
+    </main >
   );
 }
