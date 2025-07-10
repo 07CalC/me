@@ -57,8 +57,7 @@ export default function Home() {
         <Heatmap />
       </motion.section>
 
-      <motion.section
-        ref={projectsRef}
+      <motion.section ref={projectsRef}
         initial="hidden"
         animate={projectsInView ? "visible" : "hidden"}
         variants={sectionVariants}

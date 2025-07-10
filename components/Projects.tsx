@@ -9,6 +9,7 @@ const projects = [
     title: "Crux",
     description: `A web platform that provides previous years' opening and closing ranks for various colleges under JoSAA and CSAB,
   helping students make informed decisions during counseling.`,
+    image: "/crux.png",
     tech: [
       {
         name: "Next.js",
@@ -35,9 +36,27 @@ const projects = [
     demo: "https://crux.ix.tc/",
   },
   {
+    title: "Cook.nvim",
+    description: `cook.nvim is a modular and extensible Neovim plugin that lets you effortlessly compile or run the current file based on its filetype — inside a floating terminal.`,
+    image: "https://private-user-images.githubusercontent.com/96346957/458322951-9564866f-8345-4b3f-9a5d-73b5de85676d.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTIxNjYxMjIsIm5iZiI6MTc1MjE2NTgyMiwicGF0aCI6Ii85NjM0Njk1Ny80NTgzMjI5NTEtOTU2NDg2NmYtODM0NS00YjNmLTlhNWQtNzNiNWRlODU2NzZkLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzEwVDE2NDM0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY5YzJmMTMxMzI0MjZmMGVmMDkyZGMwMWE4NzFlMDlkNDM4YmZmMDhjYWZiNTc2OWFlOWVhZTg4M2JhZWFjMTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.xiU78jI__jxVnaMTV_SIJlz34--RF6kZPcBSUwG5BnY",
+    tech: [
+      {
+        name: "Lua",
+        icon: "/lua.svg"
+      },
+      {
+        name: "Neovim",
+        icon: "/neovim.svg"
+      }
+    ],
+    github: "https://github.com/07calc/cook.nvim",
+  },
+
+  {
     title: "Dorara",
     description: `An all-in-one productivity app that combines to-do lists, notes, and journaling to help users stay organized and track their
   daily activities.`,
+    image: "/dorara.png",
     tech: [
       {
         name: "React Native",
@@ -60,23 +79,9 @@ const projects = [
     demo: "https://github.com/07CalC/Dorara/releases/tag/v1.2"
   },
   {
-    title: "Cook.nvim",
-    description: `cook.nvim is a modular and extensible Neovim plugin that lets you effortlessly compile or run the current file based on its filetype — inside a floating terminal.`,
-    tech: [
-      {
-        name: "Lua",
-        icon: "/lua.svg"
-      },
-      {
-        name: "Neovim",
-        icon: "/neovim.svg"
-      }
-    ],
-    github: "https://github.com/07calc/cook.nvim",
-  },
-  {
     title: "LaxCI",
     description: `LaxCI is a blazing-fast, minimal CI runner written in Rust that executes workflows defined in a laxci.yml file — just like GitHub Actions, but entirely local.`,
+    image: "/laxci.png",
     tech: [
       {
         name: "Rust",
@@ -90,6 +95,7 @@ const projects = [
     title: "JeeLore",
     description: `A community-driven web forum where JEE and NEET aspirants can post questions, share answers, and collaborate to
   solve academic doubts.`,
+    image: "/jeelore.png",
     tech: [
       {
         name: "Express.js",
@@ -122,6 +128,7 @@ const projects = [
   }, {
     title: "Batua",
     description: `A web application that allows users to track their expenses and providing insights into their financial habits.`,
+    image: "https://media.licdn.com/dms/image/v2/D4E22AQFQ2WB2M59kHQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1728992067665?e=1755129600&v=beta&t=-YMEbcw8LN7yNI7C6nOgS5OtR7ls0dlV6u_ctVHEAdI",
     tech: [
       {
         name: "Express.js",
@@ -153,12 +160,14 @@ const projects = [
       }
     ],
     description: `RustProx is a lightweight, command-line proxy toggler built with Rust, designed to quickly enable or disable system or application-level proxy settings. Ideal for developers and network administrators.`,
+    image: "https://media.licdn.com/dms/image/v2/D4E22AQFVX4gmvMTzFA/feedshare-shrink_2048_1536/B4EZaNNe1AHoAo-/0/1746125844714?e=1755129600&v=beta&t=XKk21g1uc6NrlI3slkYRP4VQghSYPQNhBZy7q5FQoM8",
     github: "https://github.com/07calc/rustprox"
   },
   {
     title: "VtreeX",
     description: `A fast and colorful Rust CLI tool to print directory trees — like tree, but better.
 Includes stats, ignore filters, text export, and human-readable performance timing.`,
+    image: "/vtreex.png",
     tech: [
       {
         name: "Rust",
@@ -276,6 +285,22 @@ export const Projects = () => {
                     </motion.div>
                   ))}
                 </div>
+                {project.image && (
+                  <motion.div
+                    className="relative w-full flex justify-end items-end mb-4"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      width={1920}
+                      height={1080}
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                )}
               </div>
 
               <div className="flex flex-wrap justify-end gap-2 sm:gap-4 text-sm sm:text-base md:text-lg mt-auto">
