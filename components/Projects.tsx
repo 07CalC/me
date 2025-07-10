@@ -38,7 +38,7 @@ const projects = [
   {
     title: "Cook.nvim",
     description: `cook.nvim is a modular and extensible Neovim plugin that lets you effortlessly compile or run the current file based on its filetype — inside a floating terminal.`,
-    image: "https://private-user-images.githubusercontent.com/96346957/458322951-9564866f-8345-4b3f-9a5d-73b5de85676d.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTIxNjYxMjIsIm5iZiI6MTc1MjE2NTgyMiwicGF0aCI6Ii85NjM0Njk1Ny80NTgzMjI5NTEtOTU2NDg2NmYtODM0NS00YjNmLTlhNWQtNzNiNWRlODU2NzZkLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzEwVDE2NDM0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY5YzJmMTMxMzI0MjZmMGVmMDkyZGMwMWE4NzFlMDlkNDM4YmZmMDhjYWZiNTc2OWFlOWVhZTg4M2JhZWFjMTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.xiU78jI__jxVnaMTV_SIJlz34--RF6kZPcBSUwG5BnY",
+    image: "/cook.gif",
     tech: [
       {
         name: "Lua",
